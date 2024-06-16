@@ -1,0 +1,106 @@
+alias l="ls -luh"
+alias k="ls -luh"
+alias la="ls -lauh"
+
+alias ...="cd ../.."
+alias ....="cd ../../.."
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias objdump="objdump -Dslx --wide -M intel"
+
+alias py='python3'
+
+alias exe='chmod +x'
+
+# tmux: attach, 256 colors, fix unicode
+alias tmx='TERM=screen-256color-bce tmux -2u new-session -A -s main'
+# open new session with same windows, e.g. for log view
+alias tmx2='TERM=screen-256color-bce tmux -2u new-session -t "main"'
+
+# APT aliases
+alias ai="sudo apt install"
+alias ai="sudo apt install"
+alias ap="sudo apt purge"
+alias ad="sudo apt update"
+alias adu="sudo apt update && sudo apt dist-upgrade"
+alias as="aptitude -F \"* %p -> %d \n(%v/%V)\" \
+		--no-gui --disable-columns search" # search package
+
+# make icdiff work with python3
+alias icdiff="python3 (which icdiff)"
+# diff auto color
+alias diff="diff --color=auto"
+
+function md -d "Create a directory and cd into it"
+    command mkdir $argv
+    if test $status = 0
+        switch $argv[(count $argv)]
+            case '-*'
+
+            case '*'
+                cd $argv[(count $argv)]
+                return
+        end
+    end
+end
+
+function mvv -d "single arg mv with filename edit"
+    if test (count $argv) != 1
+        command mv $argv
+        return $status
+    end
+
+    set mv_src "$argv[1]"
+    set -g mv_dest "$argv[1]"
+    vared mv_dest
+
+    command mv -v -- "$mv_src" "$mv_dest"
+
+    set -e mv_dest
+end
+
+function run-docker-container-with-sf -a docker_image -d "Run a docker container, with the home dir mounted, and change to the current dir inside"
+    set current_dir (pwd)
+    if not string match --quiet --regex "$HOME" "^$current_dir"
+        echo "You are outside your home directory"
+        return 1
+    end
+
+    set inside_container_dir (string replace "$HOME" "/home/user/sf" "$current_dir")
+    docker run --rm --interactive --tty \
+        --hostname "docker" \
+        --volume "$HOME:/home/user/sf" \
+        --workdir "$inside_container_dir" \
+        "$docker_image"
+end
+alias ubuntu="run-docker-container-with-sf $USER/ubuntu-box"
+alias latex="run-docker-container-with-sf $USER/ubuntu-latex"
+
+function pdfmg -a outfile_pdf -d "merge all the PDF files in the current directory to a single one"
+    # default arg
+    set -q outfile_pdf[1]
+    or set outfile_pdf "merged.pdf"
+
+    # check ending
+    if not string match -q -- "*.pdf" "$outfile_pdf"
+        echo "'$outfile_pdf' does not have a .pdf ending!"
+        return 1
+    end
+
+    # check if exists
+    if test -f "$outfile_pdf"
+        echo "'$outfile_pdf' already exists!"
+        return 1
+    end
+
+    pdftk *.pdf cat output "$outfile_pdf"
+
+    echo "Merged into '$outfile_pdf'."
+end
+
+function mem
+    ps -eo rss,pid,euser,args:100 --sort %mem | awk '{printf $1/1024 "MB"; $1=""; print }'
+end

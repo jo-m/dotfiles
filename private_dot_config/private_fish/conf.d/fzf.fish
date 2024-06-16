@@ -1,0 +1,115 @@
+# activate keybindings
+# https://github.com/junegunn/fzf#key-bindings-for-command-line
+source /run/current-system/sw/share/fzf/key-bindings.fish
+fzf_key_bindings
+bind --erase \cr # https://news.ycombinator.com/item?id=34301480
+
+# defaults
+# https://github.com/junegunn/fzf#environment-variables
+set -x FZF_DEFAULT_OPTS '--height 80% --border'
+set -x FZF_DEFAULT_COMMAND 'rg --no-ignore-vcs --files --hidden --follow'
+
+# Open files in VSCode
+function fc --wraps=fzf
+    fzf --multi | xargs $VSCODE_OR_CODIUM_COMMAND
+end
+
+# use fzf-tmux if inside tmux
+if test -n "$TMUX"
+    set -u _FZF_BINARY fzf-tmux -l 50%
+else
+    set -u _FZF_BINARY fzf
+end
+
+# fuzzy cd
+function fcd --wraps rm --description 'fzf cd, alias for fzf-cd-widget'
+    fzf-cd-widget $argv
+end
+
+exit # TODO: fix stuff below!!
+
+#
+# Misc fzf-wrapped commands
+#
+
+function fenv -d "fzf activate a venv"
+    set activate_file (rg --no-ignore-vcs --files --hidden --follow --glob 'activate.fish' | $_FZF_BINARY --select-1)
+    if test -n "$activate_file"
+        source "$activate_file"
+    else
+        echo "No venv chosen"
+        return 1
+    end
+end
+
+function fssh -d "fzf find and connect to ssh host"
+    set -l selected (
+        rg --ignore-case '^host [^*]' ~/.ssh/config | cut -d ' ' -f 2 | $_FZF_BINARY --query="$argv" --exit-0
+    )
+    if [ -n "$selected" ]
+        echo "Connecting to $selected..."
+        ssh "$selected"
+    end
+end
+
+function fode -d "fzf list and open recent VSCode files/directories"
+    set -l selected (
+        rg -o --no-line-number '"path": "/.*[^/]"' "$VSCODE_OR_CODIUM_CONFIG_PATH/storage.json" \
+            | string replace -a '"path": ' '' \
+            | string trim -c '"'\
+            | $_FZF_BINARY --query="$argv" --exit-0 \
+    )
+
+    if [ -n "$selected" ]
+        echo "Opening $selected..."
+        $VSCODE_OR_CODIUM_COMMAND "$selected"
+    end
+end
+
+function z -d "fzf z directory jump"
+    set -l selected ($Z_CMD --list | awk '{ print $2 }' | $_FZF_BINARY --query="$argv")
+    [ -n "$selected" ]; and cd "$selected"
+end
+
+#
+# Git
+#
+
+function fdelb -d "fzf git select branches to delete"
+    set -l branches_to_delete (git for-each-ref --sort=committerdate refs/heads/ --format="%(refname:short)" | $_FZF_BINARY --multi --exit-0)
+
+    for branch in $branches_to_delete
+        git branch -D (echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+    end
+end
+
+function fcleanb -d "fzf git select branches to delete where the upstream has gone"
+    set -l branches_to_delete (
+        git for-each-ref --sort=committerdate --format='%(refname:lstrip=2) %(upstream:track)' refs/heads/ | \
+        egrep '\[gone\]$' | grep -v "master" | \
+        awk '{print $1}' | $_FZF_BINARY --multi --exit-0 \
+    )
+
+    for branch in $branches_to_delete
+        git branch -D "$branch"
+    end
+end
+
+function fco -d "fzf git checkout a branch"
+    set -l selected (
+        begin
+            git for-each-ref --sort=-committerdate --format='%(committerdate:iso-strict) %(refname:lstrip=2)' --count=15 refs/heads/
+            git for-each-ref --sort=-committerdate --format='%(committerdate:iso-strict) %(refname:lstrip=3)' --count=15 refs/remotes/
+        end | grep -v HEAD | sort --unique --key=2 | sort --reverse --key=1 | awk '{print $2}' | $_FZF_BINARY
+    )
+
+    [ -n "$selected" ]; and git checkout "$selected"
+end
+
+function fhelp -d "Show available fzf wrapper commands"
+    set -l fzf_functions z fcd fssh fenv fode fdelb fcleanb fco
+    for func in $fzf_functions
+        set -l desc (functions --details --verbose $func | tail -n +5)
+        printf "% 10s -- %s\n" "$func" "$desc"
+    end
+end
