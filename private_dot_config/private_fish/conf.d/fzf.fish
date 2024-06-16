@@ -26,16 +26,14 @@ function fcd --wraps rm --description 'fzf cd, alias for fzf-cd-widget'
     fzf-cd-widget $argv
 end
 
-exit # TODO: fix stuff below!!
-
 #
 # Misc fzf-wrapped commands
 #
 
-function fenv -d "fzf activate a venv"
-    set activate_file (rg --no-ignore-vcs --files --hidden --follow --glob 'activate.fish' | $_FZF_BINARY --select-1)
-    if test -n "$activate_file"
-        source "$activate_file"
+function fenvv -d "fzf activate a venv"
+    set _activate_file (rg --no-ignore-vcs --files --hidden --follow --quiet --glob 'activate.fish' | $_FZF_BINARY --select-1)
+    if test -n "$_activate_file"
+        source "$_activate_file"
     else
         echo "No venv chosen"
         return 1
@@ -64,11 +62,6 @@ function fode -d "fzf list and open recent VSCode files/directories"
         echo "Opening $selected..."
         $VSCODE_OR_CODIUM_COMMAND "$selected"
     end
-end
-
-function z -d "fzf z directory jump"
-    set -l selected ($Z_CMD --list | awk '{ print $2 }' | $_FZF_BINARY --query="$argv")
-    [ -n "$selected" ]; and cd "$selected"
 end
 
 #
