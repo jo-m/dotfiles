@@ -1,0 +1,42 @@
+# Sublime and general
+*~
+*.sublime-workspace
+
+# IntelliJ IDEA
+.idea
+cmake-build-debug/
+.clwb/
+
+# OSX
+.DS_Store
+._*
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# cache file for rake-fast
+.rake_tasks
+
+# vim
+*.swp
+
+# KDE Dolphin settings
+.directory
+
+# Mavproxy
+mav.parm
+mav.tlog
+mav.tlog.raw
+
+.ccache
+
+.arcconfig
+
+# VSCode
+.vscode

@@ -1,0 +1,75 @@
+[core]
+	excludesfile = ~/.gitignore_global
+[user]
+	name = Jonathan Müller
+	email = jo-m@outlook.com
+[alias]
+	br = branch --verbose
+	cl = clone
+	ci = commit
+	st = status --short --branch
+	rt = remote
+	co = checkout
+	nb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
+
+	c = commit --message              # commit with message
+	amend = commit --amend            # ammend your last commit
+	pushi = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+
+	stash-all = stash save --include-untracked
+	unstage = reset HEAD --
+
+	glog = log --graph
+	slog = log --pretty=format:"%h - %an, %ar : %s"
+
+	staged = diff --cached
+	dff = diff --ignore-space-at-eol --ignore-space-change --ignore-all-space
+
+	# via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+	assume   = update-index --assume-unchanged
+	unassume = update-index --no-assume-unchanged
+	assumed  = "!git ls-files -v | grep ^h | cut -c 3-"
+
+    pfusch = '!git commit -a -m "fix, etc."; git push --force'
+[color]
+	ui = true
+[push]
+	default = simple
+[diff]
+	algorithm = histogram
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[stash]
+	showPatch = true
+[includeIf "gitdir:~/**/*apoveda*/**"]
+	path = ~/.gitconfig-apoveda
+[includeIf "gitdir:~/git/**"]
+	path = ~/.gitconfig-hexagon
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[help]
+	autoCorrect = prompt
+# TODO: enable after git > 2.35
+#[merge]
+#	conflictstyle = zdiff3
+[rebase]
+	autosquash = true
+[init]
+	defaultBranch = main
+
+[fetch]
+	fsckobjects = true
+[transfer]
+	fsckobjects = true
+[receive]
+	fsckObjects = true
+
+# Optional: 1password credential helper
+# [credential "https://gitlab.com/"]
+#     username = _
+#     helper = "!f() { test \"$1\" = get && echo \"password=$(op read \"...\")\"; }; f"
