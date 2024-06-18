@@ -18,8 +18,6 @@ else
     set -u VSCODE_OR_CODIUM_CONFIG_PATH "$HOME/.config/VSCodium"
 end
 
-set -x FPP_EDITOR "$VSCODE_OR_CODIUM_COMMAND" # fpp http://facebook.github.io/PathPicker/
-
 #
 # Path
 #
