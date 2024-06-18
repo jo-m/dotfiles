@@ -1,8 +1,8 @@
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/gitignore_global
 [user]
-	name = Jonathan Müller
-	email = jo-m@outlook.com
+	name = {{ .name | quote }}
+	email = {{ .email | quote }}
 [alias]
 	br = branch --verbose
 	cl = clone
@@ -43,10 +43,8 @@
 	prune = true
 [stash]
 	showPatch = true
-[includeIf "gitdir:~/**/*apoveda*/**"]
-	path = ~/.gitconfig-apoveda
 [includeIf "gitdir:~/git/**"]
-	path = ~/.gitconfig-hexagon
+	path = ~/.config/git/gitconfig_work
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
