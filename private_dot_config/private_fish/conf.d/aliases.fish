@@ -60,23 +60,6 @@ function mvv -d "single arg mv with filename edit"
     set -e mv_dest
 end
 
-function run-docker-container-with-sf -a docker_image -d "Run a docker container, with the home dir mounted, and change to the current dir inside"
-    set current_dir (pwd)
-    if not string match --quiet --regex "$HOME" "^$current_dir"
-        echo "You are outside your home directory"
-        return 1
-    end
-
-    set inside_container_dir (string replace "$HOME" "/home/user/sf" "$current_dir")
-    docker run --rm --interactive --tty \
-        --hostname "docker" \
-        --volume "$HOME:/home/user/sf" \
-        --workdir "$inside_container_dir" \
-        "$docker_image"
-end
-alias ubuntu="run-docker-container-with-sf $USER/ubuntu-box"
-alias latex="run-docker-container-with-sf $USER/ubuntu-latex"
-
 function pdfmg -a outfile_pdf -d "merge all the PDF files in the current directory to a single one"
     # default arg
     set -q outfile_pdf[1]
