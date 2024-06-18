@@ -1,0 +1,74 @@
+{
+    "redhat.telemetry.enabled": false,
+    "editor.renderWhitespace": "all",
+    "workbench.tree.indent": 20,
+    "files.insertFinalNewline": true,
+    "editor.copyWithSyntaxHighlighting": false,
+    "editor.codeActionsOnSave": {},
+    "editor.multiCursorModifier": "alt",
+    "editor.snippetSuggestions": "top",
+    "files.autoSave": "off",
+    "security.workspace.trust.untrustedFiles": "open",
+    "window.openFilesInNewWindow": "off",
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "go.enableCodeLens": {},
+    "gopls": {
+        "usePlaceholders": true,
+        "codelenses": {
+            "gc_details": true,
+            "generate": true,
+            "regenerate_cgo": true,
+            "tidy": true,
+            "upgrade_dependency": true,
+            "vendor": true
+        },
+        "staticcheck": true
+    },
+    "go.editorContextMenuCommands": {
+        "fillStruct": true,
+        "testFile": true,
+        "testPackage": true,
+        "generateTestForFile": true
+    },
+    "go.lintFlags": [
+        "-checks",
+        "all,-ST1000"
+    ],
+    "editor.bracketPairColorization.enabled": true,
+    "cSpell.userWords": [
+        "autostitching",
+        "fillvalue",
+        "fname",
+        "grayscale",
+        "jdec",
+        "LOGI",
+        "mdns",
+        "RANSAC",
+        "ssrc",
+        "stdlib",
+        "stretchr",
+        "testdata",
+        "testutil",
+        "zerolog"
+    ],
+    "editor.fontFamily": "Iosevka",
+    "todo-tree.highlights.backgroundColourScheme": [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "indigo",
+        "violet",
+        "white"
+    ],
+    "go.buildFlags": [
+        "-tags=moretests"
+    ],
+    "workbench.editor.empty.hint": "hidden",
+    "explorer.confirmDelete": false,
+    "glsllint.glslangValidatorArgs": "-V",
+    "C_Cpp.intelliSenseEngine": "disabled",
+}
