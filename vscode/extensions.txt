@@ -1,0 +1,16 @@
+alexcvzz.vscode-sqlite
+bazelbuild.vscode-bazel
+bmalehorn.vscode-fish
+earshinov.permute-lines
+earshinov.simple-alignment
+golang.go
+gruntfuggly.todo-tree
+iliazeus.vscode-ansi
+lencerf.beancount
+llvm-vs-code-extensions.vscode-clangd
+naumovs.color-highlight
+redhat.vscode-commons
+redhat.vscode-yaml
+streetsidesoftware.code-spell-checker
+twxs.cmake
+vue.volar
