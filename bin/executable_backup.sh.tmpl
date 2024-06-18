@@ -1,0 +1,174 @@
+#!/bin/bash
+
+# TODO: maybe switch to https://nixos.wiki/wiki/Borg_backup eventually
+
+# https://borgbackup.readthedocs.io/en/stable/deployment/automated-local.html
+
+# On Ubuntu:
+#   sudo apt-get install borgbackup libsecret-tools gnome-keyring libpam-gnome-keyring
+
+# Install key
+#   secret-tool store borg-repository home-and-system --label="Borg Passphrase"
+#   sudo borg init --encryption=repokey --make-parent-dirs "/media/{{.chezmoi.username}}/{{.backup_medium_name_prefix}}1/backup.borg"
+
+# create repo:
+# cd /media/{{.chezmoi.username}}/<Disk>
+# sudo borg init --encryption=repokey --make-parent-dirs backup.borg
+#
+# create repo on rsync.net:
+# ssh rsync.net rm -r backup.borg
+# sudo borg --remote-path=borg1 --rsh="sudo -u {{.chezmoi.username}} ssh" init --encryption=repokey --make-parent-dirs rsync.net:backup.borg
+#
+# To see quota:
+# ssh 18324@prio.ch-s011.rsync.net quota
+
+set -eou pipefail
+
+if pidof -x borg > /dev/null; then
+    echo "Backup already running"
+    exit
+fi
+
+if ! [ -e /tmp/locomotive-backups/ ]
+then
+  echo /tmp/locomotive-backups/ does not exist.
+  echo Please run {{.chezmoi.homeDir}}/bin/backup-websites.sh
+  exit 1
+fi
+DIR_MTIME=$(stat -c $'%Y' /tmp/locomotive-backups/)
+MIN_MTIME=$((EPOCHSECONDS - 2 * 3600))
+if ((DIR_MTIME < MIN_MTIME))
+then
+  echo /tmp/locomotive-backups/ is too old.
+  echo Please run {{.chezmoi.homeDir}}/bin/backup-websites.sh
+  exit 1
+fi
+
+BORG_PASSPHRASE="$(sudo -u {{.chezmoi.username}} secret-tool lookup borg-repository home-and-system)"
+export BORG_PASSPHRASE
+
+BACKUP_ARG=${1:-}
+
+if [ "$BACKUP_ARG" = "rsync" ]; then
+  #
+  # backup to rsync.net
+  #
+
+  TARGET="rsync.net:backup.borg"
+
+  export BORG_REMOTE_PATH="borg1"
+  export BORG_RSH="sudo -u {{.chezmoi.username}} --preserve-env=SSH_AUTH_SOCK ssh"
+
+  PRUNE_OPTS="--save-space --keep-hourly=6 --keep-daily=7 --keep-weekly=8 --keep-monthly=12 --keep-yearly=5"
+
+  echo "Backing up to '${TARGET}'"
+else
+  #
+  #  backup to HDD
+  #
+
+  # default to "{{.backup_medium_name_prefix}}1"
+  if [ -z "$BACKUP_ARG" ]; then
+    BACKUP_ARG="1"
+  fi
+
+  # this is the location of the Borg repository
+  TARGET="/media/{{.chezmoi.username}}/{{.backup_medium_name_prefix}}$BACKUP_ARG/backup.borg"
+
+  PRUNE_OPTS="--keep-hourly=12 --keep-daily=14 --keep-weekly=16 --keep-monthly=36 --keep-yearly=10"
+
+  echo "Backing up to '${TARGET}'"
+
+  if ! [ -d "$TARGET" ]; then
+    echo "Backup repository not available"
+    exit 1
+  fi
+fi
+
+# Archive name schema
+DATE=$(date +'%F_%H-%M-%S')-$(hostname)
+
+if [ "$(whoami)" != 'root' ]; then
+    echo "Am not root!"
+    exit 2
+fi
+
+BORG_OPTS="--stats --progress --one-file-system --compression zstd --checkpoint-interval 86400 --exclude-caches --keep-exclude-tags"
+
+export BORG_RELOCATED_REPO_ACCESS_IS_OK=no
+export BORG_UNKNOWN_UNENCRYPTED_REPO_ACCESS_IS_OK=no
+
+borg --version
+
+echo "Starting backup for $DATE"
+
+borg create $BORG_OPTS \
+  "$TARGET::$DATE-boot" \
+  /boot/ \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg create $BORG_OPTS \
+  "$TARGET::$DATE-boot-efi" \
+  /boot/efi/ \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg create $BORG_OPTS \
+    --exclude '/home' \
+    --exclude 'sh:/tmp/*' \
+    --exclude 'sh:/var/cache/*' \
+    --exclude 'sh:/var/cache/apt/archives/*' \
+    --exclude 'sh:/var/lib/docker/*' \
+    --exclude 'sh:/var/lock/*' \
+    --exclude 'sh:/var/run/*' \
+  "$TARGET::$DATE-system" \
+  / \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg create $BORG_OPTS \
+    --exclude 'sh:/home/*/snap/firefox/common/.cache' \
+    --exclude 'sh:/home/*/.cache' \
+    --exclude 'sh:/home/*/.config/Slack' \
+    --exclude 'sh:/home/*/.config/yarn' \
+    --exclude 'sh:/home/*/.gvfs' \
+    --exclude 'sh:/home/*/.cargo' \
+    --exclude 'sh:/home/*/.local/share/Steam' \
+    --exclude 'sh:/home/*/.local/share/Trash' \
+    --exclude 'sh:/home/*/.photoprism/cache' \
+    --exclude 'sh:/home/*/.thumbnails' \
+    --exclude 'sh:/home/*/Downloads/_nobackup' \
+  "$TARGET::$DATE-home" \
+  /home/ \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg create $BORG_OPTS \
+  "$TARGET::$DATE-locomotivecms" \
+  /tmp/locomotive-backups \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+sync
+
+echo "Completed backup for $DATE"
+
+echo "Running prune: ${PRUNE_OPTS}"
+
+borg prune -v --list "$TARGET" --glob-archives "*-$(hostname)-boot" \
+  $PRUNE_OPTS \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg prune -v --list "$TARGET" --glob-archives "*-$(hostname)-boot-efi" \
+  $PRUNE_OPTS \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg prune -v --list "$TARGET" --glob-archives "*-$(hostname)-system" \
+  $PRUNE_OPTS \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg prune -v --list "$TARGET" --glob-archives "*-$(hostname)-home" \
+  $PRUNE_OPTS \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+borg prune -v --list "$TARGET" --glob-archives "*-$(hostname)-locomotivecms" \
+  $PRUNE_OPTS \
+  2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
+
+chown {{.chezmoi.username}}:{{.chezmoi.group}} {{.chezmoi.homeDir}}/.borg-backup.log

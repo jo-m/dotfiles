@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+
+if [ $(whoami) != 'root' ]; then
+    echo "Am not root!"
+    exit 1
+fi
+
+export BORG_PASSPHRASE=$(sudo -u {{.chezmoi.username}} secret-tool lookup borg-repository home-and-system)
+
+# The backup partition is mounted there
+MOUNTPOINT="/media/{{.chezmoi.username}}/{{.backup_medium_name_prefix}}1"
+
+# This is the location of the Borg repository
+TARGET="$MOUNTPOINT/backup.borg"
+
+if ! [ -d "$TARGET" ]; then
+    echo "Backup repository not available"
+    exit 2
+fi
+
+mkdir -p backup-view
+chown {{.chezmoi.username}}:{{.chezmoi.group}} backup-view
+
+echo "Mounted"
+borg mount --foreground -o allow_other "$TARGET" backup-view
+
+# To list all the available backups
+# borg list "$TARGET"
+
+# borg extract --list "$TARGET::date-hostname-home" home/{{.chezmoi.username}}/...

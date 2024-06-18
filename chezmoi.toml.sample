@@ -4,3 +4,5 @@
 
     work_name = "John Doe"
     work_email = "john@company.com"
+
+    backup_medium_name_prefix = "Backup "
