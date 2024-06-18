@@ -116,10 +116,9 @@ borg create $BORG_OPTS \
     --exclude '/home' \
     --exclude 'sh:/tmp/*' \
     --exclude 'sh:/var/cache/*' \
-    --exclude 'sh:/var/cache/apt/archives/*' \
-    --exclude 'sh:/var/lib/docker/*' \
     --exclude 'sh:/var/lock/*' \
     --exclude 'sh:/var/run/*' \
+    --exclude 'sh:/nix/store/*' \
   "$TARGET::$DATE-system" \
   / \
   2>&1 | tee -a {{.chezmoi.homeDir}}/.borg-backup.log
