@@ -29,8 +29,6 @@ alias adu="sudo apt update && sudo apt dist-upgrade"
 alias as="aptitude -F \"* %p -> %d \n(%v/%V)\" \
 		--no-gui --disable-columns search" # search package
 
-# make icdiff work with python3
-alias icdiff="python3 (which icdiff)"
 # diff auto color
 alias diff="diff --color=auto"
 
