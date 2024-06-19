@@ -43,8 +43,6 @@
 	prune = true
 [stash]
 	showPatch = true
-[includeIf "gitdir:~/git/**"]
-	path = ~/.config/git/gitconfig_work
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -66,6 +64,14 @@
 	fsckobjects = true
 [receive]
 	fsckObjects = true
+
+# Include work specific gitconfig
+[includeIf "gitdir:{{.work_git_dir}}/**"]
+	path = ~/.config/git/gitconfig_work
+
+# Include additional work specific gitconfig which will not be tracked/overwritten by chezmoi
+[includeIf "gitdir:{{.work_git_dir}}/**"]
+	path = ~/.config/git/gitconfig_work_additional
 
 # Optional: 1password credential helper
 # [credential "https://gitlab.com/"]
