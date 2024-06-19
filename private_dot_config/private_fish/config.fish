@@ -18,6 +18,11 @@ else
     set -u VSCODE_OR_CODIUM_CONFIG_PATH "$HOME/.config/VSCodium"
 end
 
+# ddcutil
+# needs: sudo usermod (whoami) -aG i2c
+alias darker='ddcutil setvcp --display 2 0x10 - 25; ddcutil setvcp --display 1 0x10 - 25'
+alias brighter='ddcutil setvcp --display 2 0x10 + 25; ddcutil setvcp --display 1 0x10 + 25'
+
 #
 # Path
 #
@@ -36,27 +41,6 @@ set -x RIPGREP_CONFIG_PATH $HOME/.config/ripgrep
 
 set -x GOPATH "$HOME/go"
 fish_add_path --path "$GOPATH/bin"
-
-# custom per-machine config file
-[ -f "$__fish_config_dir/_custom.fish" ]; and source "$__fish_config_dir/_custom.fish"
-
-#
-# NPM path
-#
-
-# https://github.com/sindresorhus/guides/blob/main/npm-global-without-sudo.md
-# set up like this:
-#   mkdir "$HOME/.npm-packages"
-#   npm config set prefix "$HOME/.npm-packages"
-#
-# now, you can npm install -g without sudo.
-set NPM_PACKAGES "$HOME/.npm-packages"
-fish_add_path --path "$NPM_PACKAGES/bin"
-
-# ddcutil
-# needs: sudo usermod (whoami) -aG i2c
-alias darker='ddcutil setvcp --display 2 0x10 - 25; ddcutil setvcp --display 1 0x10 - 25'
-alias brighter='ddcutil setvcp --display 2 0x10 + 25; ddcutil setvcp --display 1 0x10 + 25'
 
 #set -x IDF_TOOLS_PATH "$HOME/bin/espressif"
 #set -x IDF_PATH "$HOME/bin/esp/v5.2.1/esp-idf"
