@@ -29,3 +29,11 @@ alias brighter='ddcutil setvcp --display 2 0x10 + 25; ddcutil setvcp --display 1
 {{ if lookPath "direnv" }}
 direnv hook fish | source
 {{end}}
+
+# ESP-IDF
+if test -d "$HOME/bin/espressif"
+    set -x IDF_TOOLS_PATH "$HOME/bin/espressif"
+    set -x IDF_PATH "$HOME/bin/esp/v5.*/esp-idf"
+    fish_add_path --path "$IDF_PATH/tools"
+    test -f "$IDF_PATH/export.fish" && source $IDF_PATH/export.fish
+end
