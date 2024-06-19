@@ -46,3 +46,8 @@ fish_add_path --path "$GOPATH/bin"
 #set -x IDF_PATH "$HOME/bin/esp/v5.2.1/esp-idf"
 #fish_add_path --path "$IDF_PATH/tools"
 # test -f "$IDF_PATH/export.fish" && source $IDF_PATH/export.fish
+
+# Direnv
+{{ if lookPath "direnv" }}
+direnv hook fish | source
+{{end}}
