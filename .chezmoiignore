@@ -6,6 +6,4 @@ old/**
 vscode
 vscode/**
 
-chezmoi.toml.sample
-
 data.json

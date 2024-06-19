@@ -1,0 +1,12 @@
+{{ $name := promptString "name" "John Doe"}}
+{{ $email := promptString "email" ""}}
+{{ $work_email := promptString "work_email" "john@company.com"}}
+{{ $work_git_dir := promptString "work_git_dir" "~/git"}}
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    work_email = {{ $work_email | quote }}
+    work_git_dir = {{ $work_git_dir | quote }}
+
+    backup_medium_name_prefix = "Joni Backup "

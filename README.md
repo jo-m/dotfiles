@@ -1,13 +1,11 @@
-# Chezmoi config
+# Dotfiles (Via Chezmoi)
 
 ```bash
 # Install
-chezmoi init --apply https://github.com/$GITHUB_USERNAME/dotfiles.git
-
-# Set config values
-mkdir -p ~/.config/chezmoi/
-cp ~/.local/share/chezmoi/chezmoi.toml.sample ~/.config/chezmoi/chezmoi.toml
+chezmoi init https://github.com/jo-m/dotfiles.git
 $EDITOR ~/.config/chezmoi/chezmoi.toml
+chezmoi apply --dry-run --verbose
+chezmoi apply
 ```
 
 ## VSCode extensions
