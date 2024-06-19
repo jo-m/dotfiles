@@ -71,4 +71,8 @@
     "explorer.confirmDelete": false,
     "glsllint.glslangValidatorArgs": "-V",
     "C_Cpp.intelliSenseEngine": "disabled",
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
 }
