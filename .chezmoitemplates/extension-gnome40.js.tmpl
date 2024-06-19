@@ -24,11 +24,19 @@ const BINDINGS = [
     title: 'Files',
     command: 'nautilus'
   },
+{{ if lookPath "codium" }}
   {
     shortcut: 'F7',
     title: 'VSCodium',
     command: 'codium'
   },
+{{ else }}
+  {
+    shortcut: 'F7',
+    title: 'Visual Studio Code',
+    command: 'code'
+  },
+{{ end }}
   {
     shortcut: 'F9',
     title: 'Chrome',
@@ -36,16 +44,14 @@ const BINDINGS = [
   },
 ];
 
-import Gio from 'gi://Gio';
-import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
-import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-const Mainloop = imports.mainloop
-import Meta from 'gi://Meta'; // const Meta = imports.gi.Meta; //TODO
-import Shell from 'gi://Shell';
-import * as Util from 'resource:///org/gnome/shell/misc/util.js';
+const { Gio } = imports.gi;
+const Main = imports.ui.main;
+const Mainloop = imports.mainloop;
+const Meta = imports.gi.Meta;
+const Shell = imports.gi.Shell;
+const Util = imports.misc.util;
 
-
-export default class GnomeMagicWindowExtension extends Extension {
+class Extension {
   enable() {
     this._dbus = Gio.DBusExportedObject.wrapJSObject(`
       <node>
@@ -102,7 +108,7 @@ export default class GnomeMagicWindowExtension extends Extension {
            .map(w => ({id: w.toString(),
                        ref: w,
                        title: w.get_meta_window().get_wm_class()}))
-           .filter(w => w.title && !w.title.includes('Gnome-shell'));
+           .filter(w => !w.title.includes('Gnome-shell'));
   }
 
   get_active_window() {
@@ -139,4 +145,8 @@ export default class GnomeMagicWindowExtension extends Extension {
       Main.activateWindow(this._last_not_magic.ref.get_meta_window());
     }
   }
+}
+
+function init() {
+  return new Extension();
 }
