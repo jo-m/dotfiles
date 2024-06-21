@@ -1,8 +1,8 @@
 # activate keybindings
 # https://github.com/junegunn/fzf#key-bindings-for-command-line
-{{- if eq .chezmoi.osRelease.id "nixos" }}
+{{ if eq .chezmoi.osRelease.id "nixos" -}}
 source /run/current-system/sw/share/fzf/key-bindings.fish
-{{- else }}
+{{- else -}}
 source /usr/share/doc/fzf/examples/key-bindings.fish
 {{- end }}
 fzf_key_bindings

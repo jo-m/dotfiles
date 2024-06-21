@@ -1,5 +1,5 @@
 {{ if eq .chezmoi.osRelease.id "ubuntu" -}}
 {{-   template "extension-gnome40.js.tmpl" -}}
-{{ else }}
+{{- else -}}
 {{-   template "extension-gnome45.js.tmpl" -}}
-{{ end -}}
+{{- end -}}

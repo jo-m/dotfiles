@@ -77,7 +77,7 @@ function mem
     ps -eo rss,pid,euser,args:100 --sort %mem | awk '{printf $1/1024 "MB"; $1=""; print }'
 end
 
-{{- if eq .chezmoi.osRelease.id "ubuntu" }}
+{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
 # APT aliases
 alias ai "sudo apt install"
 alias ai "sudo apt install"
@@ -85,5 +85,5 @@ alias ap "sudo apt purge"
 alias ad "sudo apt update"
 alias adu "sudo apt update && sudo apt dist-upgrade"
 alias as "aptitude -F \"* %p -> %d \n(%v/%V)\" \
-		--no-gui --disable-columns search" # search package
-{{- end }}
+        --no-gui --disable-columns search" # search package
+{{- end -}}

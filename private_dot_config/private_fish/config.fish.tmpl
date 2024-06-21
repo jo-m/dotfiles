@@ -25,10 +25,10 @@ end
 alias darker='ddcutil setvcp --display 2 0x10 - 25; ddcutil setvcp --display 1 0x10 - 25'
 alias brighter='ddcutil setvcp --display 2 0x10 + 25; ddcutil setvcp --display 1 0x10 + 25'
 
+{{ if lookPath "direnv" -}}
 # Direnv
-{{ if lookPath "direnv" }}
 direnv hook fish | source
-{{end}}
+{{- end }}
 
 # ESP-IDF
 if test -d "$HOME/bin/espressif"

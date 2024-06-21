@@ -24,19 +24,19 @@ const BINDINGS = [
     title: 'Files',
     command: 'nautilus'
   },
-{{ if lookPath "codium" }}
+  {{ if lookPath "codium" -}}
   {
     shortcut: 'F7',
     title: 'VSCodium',
     command: 'codium'
   },
-{{ else }}
+  {{- else -}}
   {
     shortcut: 'F7',
     title: 'Code',
     command: 'code'
   },
-{{ end }}
+  {{- end }}
   {
     shortcut: 'F9',
     title: 'Chrome',

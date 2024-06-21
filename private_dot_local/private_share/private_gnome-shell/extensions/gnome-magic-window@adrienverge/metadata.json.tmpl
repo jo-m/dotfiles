@@ -1,5 +1,5 @@
-{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+{{- if eq .chezmoi.osRelease.id "ubuntu" -}}
 {{-   template "metadata-gnome40.json.tmpl" -}}
-{{ else }}
+{{- else -}}
 {{-   template "metadata-gnome45.json.tmpl" -}}
-{{ end -}}
+{{- end -}}
