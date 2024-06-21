@@ -116,6 +116,10 @@ class Extension {
   }
 
   find_magic_window(title) {
+    // journalctl /usr/bin/gnome-shell -f -o cat
+    global.log(`Looking for window with title: ${title}`)
+    const wins = this.get_windows();
+    wins.forEach(w => global.log(`Found window: ${w.title}`));
     return this.get_windows()
            .filter(w => w.title.toLowerCase().includes(title.toLowerCase()))[0];
   }
