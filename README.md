@@ -13,3 +13,13 @@ chezmoi apply
 ```bash
 code --list-extensions | sort > vscode/extensions.txt
 ```
+
+## Gnome settings
+
+```bash
+# dump
+dconf dump / > dconf/dconf.ini
+
+# load
+dconf load / < dconf/dconf.ini
+```
