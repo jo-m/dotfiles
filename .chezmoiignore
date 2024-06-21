@@ -6,4 +6,4 @@ old/**
 vscode
 vscode/**
 
-data.json
+data-*.json
