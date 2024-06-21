@@ -21,10 +21,6 @@ else
     set -u VSCODE_OR_CODIUM_CONFIG_PATH "$HOME/.config/VSCodium"
 end
 
-# ddcutil, needs: sudo usermod (whoami) -aG i2c
-alias darker='ddcutil setvcp --display 2 0x10 - 25; ddcutil setvcp --display 1 0x10 - 25'
-alias brighter='ddcutil setvcp --display 2 0x10 + 25; ddcutil setvcp --display 1 0x10 + 25'
-
 {{ if lookPath "direnv" -}}
 # Direnv
 direnv hook fish | source
