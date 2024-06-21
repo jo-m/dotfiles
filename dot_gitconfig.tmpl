@@ -65,6 +65,16 @@
 [receive]
 	fsckObjects = true
 
+{{ if lookPath "difft" -}}
+[diff]
+	# See https://difftastic.wilfred.me.uk/git.html
+	# This only works for `git diff`, for others `--ext-diff` needs to be specified
+	# e.g.
+	#   git show HEAD --ext-diff
+	# To use builtin diff, use `git diff --no-ext-diff`
+	external = difft
+{{- end }}
+
 # Include work specific gitconfig
 [includeIf "gitdir:{{.work_git_dir}}/**"]
 	path = ~/.config/git/gitconfig_work
