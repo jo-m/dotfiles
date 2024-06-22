@@ -75,6 +75,12 @@
 	external = difft
 {{- end }}
 
+{{ if eq .chezmoi.osRelease.id "nixos" -}}
+[safe]
+	directory = /etc/nixos//.git
+	directory = /etc/nixos/.git
+{{- end }}
+
 # Include work specific gitconfig
 [includeIf "gitdir:{{.work_git_dir}}/**"]
 	path = ~/.config/git/gitconfig_work
