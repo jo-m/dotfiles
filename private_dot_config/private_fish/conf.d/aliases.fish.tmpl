@@ -2,8 +2,12 @@ alias l "ls -luh"
 alias k "ls -luh"
 alias la "ls -lauh"
 
-alias ... "cd ../.."
-alias .... "cd ../../.."
+# Enable ... and .... etc
+# See https://fishshell.com/docs/current/interactive.html#abbreviations
+function multicd
+    echo cd (string repeat -n (math (string length -- $argv[1]) - 1) ../)
+end
+abbr --add dotdot --regex '^\.\.+$' --function multicd
 
 alias grep 'grep --color=auto'
 alias fgrep 'fgrep --color=auto'
