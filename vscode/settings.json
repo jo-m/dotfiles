@@ -75,4 +75,5 @@
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
+    "go.toolsManagement.autoUpdate": true,
 }
