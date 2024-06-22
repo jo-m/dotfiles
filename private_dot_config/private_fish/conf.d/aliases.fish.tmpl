@@ -1,6 +1,6 @@
-alias l "ls -luh"
-alias k "ls -luh"
-alias la "ls -lauh"
+abbr --add l "ls -luh"
+abbr --add k "ls -luh"
+abbr --add la "ls -lauh"
 
 # Enable ... and .... etc
 # See https://fishshell.com/docs/current/interactive.html#abbreviations
@@ -9,16 +9,16 @@ function multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
-alias objdump "objdump -Dslx --wide -M intel"
+abbr --add objdump "objdump -Dslx --wide -M intel"
 
-alias py 'python3'
+abbr --add py 'python3'
 
-alias exe 'chmod +x'
+abbr -a exe chmod +x
 
 # tmux: attach, 256 colors, fix unicode
-alias tmx 'TERM=screen-256color-bce tmux -2u new-session -A -s main'
+abbr --add tmx 'TERM=screen-256color-bce tmux -2u new-session -A -s main'
 # open new session with same windows, e.g. for log view
-alias tmx2 'TERM=screen-256color-bce tmux -2u new-session -t "main"'
+abbr --add tmx2 'TERM=screen-256color-bce tmux -2u new-session -t "main"'
 
 function md -d "Create a directory and cd into it"
     command mkdir $argv
@@ -76,11 +76,11 @@ end
 
 {{ if eq .chezmoi.osRelease.id "ubuntu" -}}
 # APT aliases
-alias ai "sudo apt install"
-alias ai "sudo apt install"
-alias ap "sudo apt purge"
-alias ad "sudo apt update"
-alias adu "sudo apt update && sudo apt dist-upgrade"
-alias as "aptitude -F \"* %p -> %d \n(%v/%V)\" \
+abbr --add ai "sudo apt install"
+abbr --add ai "sudo apt install"
+abbr --add ap "sudo apt purge"
+abbr --add ad "sudo apt update"
+abbr --add adu "sudo apt update && sudo apt dist-upgrade"
+abbr --add as "aptitude -F \"* %p -> %d \n(%v/%V)\" \
         --no-gui --disable-columns search" # search package
 {{- end -}}
