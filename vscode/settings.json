@@ -76,4 +76,6 @@
         "workbench.action.tasks.runTask"
     ],
     "go.toolsManagement.autoUpdate": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Default Light Modern",
 }
