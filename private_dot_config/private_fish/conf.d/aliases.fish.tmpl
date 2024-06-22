@@ -9,10 +9,6 @@ function multicd
 end
 abbr --add dotdot --regex '^\.\.+$' --function multicd
 
-alias grep 'grep --color=auto'
-alias fgrep 'fgrep --color=auto'
-alias egrep 'egrep --color=auto'
-
 alias objdump "objdump -Dslx --wide -M intel"
 
 alias py 'python3'
@@ -23,9 +19,6 @@ alias exe 'chmod +x'
 alias tmx 'TERM=screen-256color-bce tmux -2u new-session -A -s main'
 # open new session with same windows, e.g. for log view
 alias tmx2 'TERM=screen-256color-bce tmux -2u new-session -t "main"'
-
-# diff auto color
-alias diff "diff --color=auto"
 
 function md -d "Create a directory and cd into it"
     command mkdir $argv
