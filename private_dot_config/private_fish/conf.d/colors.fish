@@ -1,10 +1,10 @@
 set -U fish_color_normal normal
-set -U fish_color_command normal
+set -U fish_color_command normal --bold
 set -U fish_color_quote d75f00
 set -U fish_color_redirection cyan --bold
 set -U fish_color_end green
 set -U fish_color_error brred
-set -U fish_color_param cyan
+set -U fish_color_param normal
 set -U fish_color_comment red
 set -U fish_color_match --background=brblue
 set -U fish_color_selection white --bold --background=brblack
