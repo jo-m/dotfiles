@@ -22,7 +22,7 @@ code --list-extensions | sort > vscode/extensions.txt
 
 ```bash
 # dump
-dconf dump / > dconf/dconf.ini
+./dconf/dump.py
 
 # load
 dconf load / < dconf/dconf.ini
