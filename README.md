@@ -27,3 +27,12 @@ code --list-extensions | sort > vscode/extensions.txt
 # load
 dconf load / < dconf/dconf.ini
 ```
+
+## Key bindings
+
+- `F1` Nautilus/Files
+- `F6` Dark/Light mode
+- `F7` VS Code / Codium
+- `F8` Quake Terminal
+- `F9` Chrome
+- `F10` Firefox
