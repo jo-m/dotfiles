@@ -1,4 +1,7 @@
-# Dotfiles (Via Chezmoi)
+# Dotfiles (Chezmoi)
+
+This assumes the system setup as per https://github.com/jo-m/nixos-config/.
+For stock Ubuntu, see below.
 
 ```bash
 # Install
@@ -36,3 +39,13 @@ dconf load / < dconf/dconf.ini
 - `F8` Quake Terminal
 - `F9` Chrome
 - `F10` Firefox
+
+## On Ubuntu 24.04 LTS
+
+```bash
+sudo apt-get install git fish curl wget tmux ripgrep fzf fonts-powerline
+sudo snap install chezmoi --classic
+chsh -s /usr/bin/fish
+
+# Now, you can follow the "Install" steps at the top.
+```
