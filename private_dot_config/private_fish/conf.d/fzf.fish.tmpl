@@ -6,7 +6,9 @@ source /run/current-system/sw/share/fzf/key-bindings.fish
 source /usr/share/doc/fzf/examples/key-bindings.fish
 {{- end }}
 fzf_key_bindings
+{{- if eq .chezmoi.osRelease.id "nixos" }}
 bind --erase \cr # https://news.ycombinator.com/item?id=34301480
+{{ end -}}
 
 # defaults
 # https://github.com/junegunn/fzf#environment-variables
