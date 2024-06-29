@@ -13,7 +13,7 @@ set right_segment_separator \uE0B0
 # If not set, default color from agnoster will be used.
 # ===========================
 
-set -q color_virtual_env_bg; or set color_virtual_env_bg magenta
+set -q color_virtual_env_bg; or set color_virtual_env_bg white
 set -q color_virtual_env_str; or set color_virtual_env_str black
 set -q color_hostname_bg; or set color_hostname_bg yellow
 set -q color_hostname_str; or set color_hostname_str black
