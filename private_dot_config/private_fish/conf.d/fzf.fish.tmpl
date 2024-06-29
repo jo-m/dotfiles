@@ -36,8 +36,8 @@ end
 # Misc fzf-wrapped commands
 #
 
-function fenvv -d "fzf activate a venv"
-    set _activate_file (rg --no-ignore-vcs --files --hidden --follow --quiet --glob 'activate.fish' | $_FZF_BINARY --select-1)
+function venv -d "fzf activate a venv"
+    set _activate_file (rg --no-ignore-vcs --files --hidden --follow --glob 'activate.fish' | $_FZF_BINARY --select-1)
     if test -n "$_activate_file"
         source "$_activate_file"
     else
