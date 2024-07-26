@@ -51,6 +51,7 @@
         "fillvalue",
         "fname",
         "grayscale",
+        "INKLAY",
         "jdec",
         "Ksection",
         "LOGI",
@@ -89,4 +90,7 @@
     ],
     "go.toolsManagement.autoUpdate": true,
     "window.autoDetectColorScheme": true,
+    "idf.port": "${env:ESP_PORT}",
+    "idf.pythonBinPath": "${env:PYTHONHOME}/bin/python",
+    "idf.showOnboardingOnInit": false,
 }
