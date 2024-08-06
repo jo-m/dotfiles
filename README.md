@@ -47,5 +47,11 @@ sudo apt-get install git fish curl wget tmux ripgrep fzf fonts-powerline
 sudo snap install chezmoi --classic
 chsh -s /usr/bin/fish
 
+# Fisher https://github.com/jorgebucaran/fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | \
+    source && fisher install jorgebucaran/fisher
+# z https://github.com/jethrokuan/z
+fisher install jethrokuan/z
+
 # Now, you can follow the "Install" steps at the top.
 ```
