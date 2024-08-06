@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+{{ if or (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "pop") -}}
 {{-   template "extension-gnome40.js.tmpl" -}}
 {{- else -}}
 {{-   template "extension-gnome45.js.tmpl" -}}
