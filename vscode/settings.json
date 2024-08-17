@@ -127,8 +127,9 @@
     ],
     "go.toolsManagement.autoUpdate": true,
     "window.autoDetectColorScheme": true,
-    "idf.port": "${env:ESP_PORT}",
-    "idf.pythonBinPath": "${env:PYTHONHOME}/bin/python",
+    "idf.port": "${env:ESPPORT}",
+    "idf.pythonBinPath": "${env:IDF_PYTHON_ENV_PATH}/bin/python",
     "idf.showOnboardingOnInit": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "idf.gitPath": "/run/current-system/sw/bin/git"
 }
