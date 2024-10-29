@@ -55,3 +55,10 @@ fisher install jethrokuan/z
 
 # Now, you can follow the "Install" steps at the top.
 ```
+
+## Tar chezmoi config on a machine for export
+
+```bash
+chezmoi cd
+tar cvjf ~/Downloads/chezmoi.tar.gz --strip-components=1 ../chezmoi/
+```
