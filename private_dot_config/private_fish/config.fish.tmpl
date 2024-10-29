@@ -21,7 +21,6 @@ else
     set -u VSCODE_OR_CODIUM_CONFIG_PATH "$HOME/.config/VSCodium"
 end
 
-{{ if lookPath "direnv" -}}
-# Direnv
-direnv hook fish | source
-{{- end }}
+if type -q direnv
+    direnv hook fish | source
+end
