@@ -34,9 +34,10 @@ mav.parm
 mav.tlog
 mav.tlog.raw
 
-.ccache
-
-.arcconfig
-
 # VSCode
 .vscode
+
+# Varioous dev files
+.mypy_cache/
+.ccache
+.arcconfig
