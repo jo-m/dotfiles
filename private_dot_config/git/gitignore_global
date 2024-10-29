@@ -37,7 +37,7 @@ mav.tlog.raw
 # VSCode
 .vscode
 
-# Varioous dev files
+# Various dev files
 .mypy_cache/
 .ccache
 .arcconfig
