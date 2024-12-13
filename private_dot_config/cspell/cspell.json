@@ -1,0 +1,42 @@
+{
+    "language": "en,de",
+    "dictionaries": [
+        "bash",
+        "companies",
+        "cpp",
+        "css",
+        "filetypes",
+        "go",
+        "html",
+        "latex",
+        "misc",
+        "node",
+        "npm",
+        "python",
+        "softwareTerms",
+        "typescript",
+        // User defined.
+        "user-github",
+        "user-programming",
+        "user-sw",
+        "user-localhost",
+    ],
+    "dictionaryDefinitions": [
+        {
+            "name": "user-github",
+            "path": "./dicts/github.txt"
+        },
+        {
+            "name": "user-programming",
+            "path": "./dicts/programming.txt"
+        },
+        {
+            "name": "user-sw",
+            "path": "./dicts/sw.txt"
+        },
+        {
+            "name": "user-localhost",
+            "path": "./dicts/localhost.txt"
+        },
+    ],
+}

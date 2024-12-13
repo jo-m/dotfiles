@@ -10,3 +10,6 @@ data-*.json
 
 dconf/
 dconf/**
+
+symlinked/
+symlinked/**
