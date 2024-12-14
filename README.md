@@ -18,7 +18,7 @@ $EDITOR ~/.config/fish/conf.d/exports.fish
 ## VSCode extensions
 
 ```bash
-code --list-extensions | sort > vscode/extensions.txt
+code --list-extensions | sort > symlinked/vscode/extensions.txt
 ```
 
 ## Gnome settings
