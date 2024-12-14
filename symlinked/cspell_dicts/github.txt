@@ -1,9 +1,12 @@
+adrienverge
 alexcvzz
 alexflint
 amezin
 barasher
 bmalehorn
 earshinov
+edolstra
+gcampax
 gonum
 gruntfuggly
 hplot
@@ -14,9 +17,11 @@ jethrokuan
 jmoiron
 jorgebucaran
 lencerf
+lunarg
 mkhl
 naumovs
 nfnt
+sidevesh
 takey
 telcambot
 tungstenite

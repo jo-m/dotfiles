@@ -102,11 +102,14 @@ metapackages
 miscalibration
 MJPG
 mkdirs
+moderncv
 moretests
 muahahah
 nanos
 nixdev
+nixops
 nixos
+nixpkgs
 nocheck
 nonblocking
 noresult
@@ -115,11 +118,13 @@ notf
 nullglob
 nvgpu
 odometry
+OLED
 ondemand
 openapi
 OPENMP
 overtemperature
 picam
+picklecache
 pids
 pinia
 powerline
@@ -202,6 +207,7 @@ unmetered
 unstripped
 untar
 userspace
+virtualisation
 vite
 vulkan
 wakeup
