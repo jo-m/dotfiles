@@ -10,9 +10,10 @@ $EDITOR ~/.config/chezmoi/chezmoi.toml
 chezmoi apply --dry-run --verbose
 chezmoi apply
 
-# Custom per-machine fish variable exports
-# e.g. `set -x MY_ENV_VAR my_value`
-$EDITOR ~/.config/fish/conf.d/exports.fish
+# Custom host specific config.
+$EDITOR ~/.config/fish/conf.d/localhost.fish # e.g. `set -x MY_ENV_VAR my_value`
+$EDITOR ~/.config/git/gitconfig_work_localhost
+$EDITOR ~/.config/cspell/dicts/localhost.txt
 ```
 
 ## VSCode extensions

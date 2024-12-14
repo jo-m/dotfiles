@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
-# Create empty gitconfig_work_additional config file
+### Create empty files
 mkdir -p {{.chezmoi.homeDir}}/.config/git/
-touch {{.chezmoi.homeDir}}/.config/git/gitconfig_work_additional
+touch {{.chezmoi.homeDir}}/.config/git/gitconfig_work_localhost
 
-# Create empty fish variable export file
 mkdir -p {{.chezmoi.homeDir}}/.config/fish/conf.d
-touch {{.chezmoi.homeDir}}/.config/fish/conf.d/exports.fish
+touch {{.chezmoi.homeDir}}/.config/fish/conf.d/localhost.fish
 
-# Create empty cspell dict
 mkdir -p {{.chezmoi.homeDir}}/.config/cspell/dicts
 touch {{.chezmoi.homeDir}}/.config/cspell/dicts/localhost.txt
