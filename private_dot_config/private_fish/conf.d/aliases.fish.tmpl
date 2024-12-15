@@ -74,6 +74,9 @@ function mem
     ps -eo rss,pid,euser,args:100 --sort %mem | awk '{printf $1/1024 "MB"; $1=""; print }'
 end
 
+# Gnome trash on CLI
+alias trash "gio trash"
+
 {{ if or (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "pop") -}}
 # APT aliases
 alias ai "sudo apt install"
