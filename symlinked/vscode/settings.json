@@ -84,5 +84,12 @@
     ],
     "cSpell.import": [
         "${userHome}/.config/cspell/cspell.json"
-    ]
+    ],
+    "git.openRepositoryInParentFolders": "always",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    }
 }
