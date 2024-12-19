@@ -2,11 +2,15 @@ adrienverge
 alexcvzz
 alexflint
 amezin
+anstyle
 barasher
 bmalehorn
+colorchoice
+corasick
 earshinov
 edolstra
 gcampax
+gimli
 gonum
 gruntfuggly
 hplot
@@ -18,6 +22,7 @@ jmoiron
 jorgebucaran
 lencerf
 lunarg
+miniz
 mkhl
 naumovs
 nfnt

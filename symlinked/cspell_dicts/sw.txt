@@ -2,12 +2,14 @@ aflplusplus
 alsa
 apktool
 appindicator
+aprilgrid
 Asus
 atomix
 avrdude
 bazel
 bazelbuild
 beancount
+Bitbake
 borgbackup
 bpftrace
 brcmutil
@@ -49,6 +51,7 @@ joplinapp
 keepassxc
 libav
 libheif
+libsystemd
 LIBVA
 libvdpau
 linssid

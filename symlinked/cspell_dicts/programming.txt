@@ -11,6 +11,7 @@ bksp
 blackbox
 blackboxes
 brcmfmac
+buildtool
 cachebust
 cachepush
 calib
@@ -24,6 +25,7 @@ classmethod
 cmath
 colour
 confighelper
+cpplint
 cstdlib
 ctest
 cuda
@@ -35,12 +37,14 @@ dateutil
 deadpool
 debians
 debuggability
+demangle
 dependee
 dependees
 devcontainer
 devel
 direnv
 dndebug
+Dockerfiles
 docstrings
 doctests
 dotenv
@@ -53,7 +57,9 @@ espport
 etag
 execv
 exif
+extrinsics
 fakeroot
+Fargate
 favs
 filedef
 fillvalue
@@ -73,6 +79,7 @@ gopath
 gopls
 grayscale
 groupname
+HHMMSSZ
 highlevel
 hostnames
 hotspot
@@ -81,6 +88,7 @@ indexmap
 insertable
 insta
 interruptible
+ionice
 itertools
 jdec
 jobserver
@@ -90,6 +98,7 @@ kwarg
 kwargs
 lettre
 libinspect
+linalg
 linterconfig
 localstorage
 logi
@@ -106,6 +115,7 @@ moderncv
 moretests
 muahahah
 nanos
+ndarray
 nixdev
 nixops
 nixos
@@ -116,6 +126,7 @@ noresult
 nosec
 notf
 nullglob
+nvcc
 nvgpu
 odometry
 OLED
@@ -123,6 +134,7 @@ ondemand
 openapi
 OPENMP
 overtemperature
+pdfs
 picam
 picklecache
 pids
@@ -141,6 +153,7 @@ pymethods
 pymodule
 pytest
 pythonpath
+PYTHONUNBUFFERED
 qcserial
 radps
 ransac
@@ -157,13 +170,18 @@ repr
 reprojection
 reqwest
 rescan
+retagging
 rgbac
+roscore
+rosrun
+rostopic
 rpassword
 rstest
 rustc
 rustup
 scopeguard
 screenreader
+serde
 servicedesk
 servicedeskapi
 shopt
@@ -213,10 +231,14 @@ vulkan
 wakeup
 walkdir
 webide
+webui
 Werror
 Wextra
 worktrees
 xret
+xticklabels
+xticks
+ylabel
 yret
 YUYV
 zeroconf
