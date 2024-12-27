@@ -26,6 +26,7 @@ ddcutil
 ddterm
 dialout
 difftastic
+disqus
 distrobox
 dwarffs
 exifixer
@@ -35,6 +36,9 @@ freedesktop
 fwupd
 geary
 glxinfo
+goldmark
+gosec
+govulncheck
 gparted
 gperf
 gpxsee
@@ -55,13 +59,18 @@ libsystemd
 LIBVA
 libvdpau
 linssid
+locomotivecms
 logomenu
 losslesscut
 lshw
 luks
 LVFS
+Mailcatcher
 mavproxy
 minicom
+mongodump
+mongoid
+mongorestore
 multimon
 mypy
 neofetch

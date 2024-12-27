@@ -10,12 +10,17 @@ avgdev
 bksp
 blackbox
 blackboxes
+blockinfile
 brcmfmac
 buildtool
+buildx
+bundix
 cachebust
 cachepush
+Caddyfile
 calib
 canonicalize
+canonify
 ccache
 cdylibs
 cfgs
@@ -38,6 +43,7 @@ deadpool
 debians
 debuggability
 demangle
+demosite
 dependee
 dependees
 devcontainer
@@ -47,6 +53,7 @@ dndebug
 Dockerfiles
 docstrings
 doctests
+dotbashrc
 dotenv
 dotenvy
 dotfiles
@@ -68,6 +75,7 @@ fname
 fopenmp
 fourcc
 freethreaded
+gemset
 getattr
 geteuid
 gethostname
@@ -96,9 +104,12 @@ keyrings
 ksection
 kwarg
 kwargs
+lanczos
 lettre
 libinspect
+licenselink
 linalg
+lineinfile
 linterconfig
 localstorage
 logi
@@ -156,6 +167,7 @@ pythonpath
 PYTHONUNBUFFERED
 qcserial
 radps
+Rakefile
 ransac
 raspberrypi
 raspis
@@ -166,12 +178,14 @@ realpath
 reborrows
 recalib
 regexes
+replaceme
 repr
 reprojection
 reqwest
 rescan
 retagging
 rgbac
+rhosts
 roscore
 rosrun
 rostopic
@@ -185,6 +199,7 @@ serde
 servicedesk
 servicedeskapi
 shopt
+signup
 spammy
 spidev
 SPIR
@@ -228,6 +243,7 @@ userspace
 virtualisation
 vite
 vulkan
+VULNCHECK
 wakeup
 walkdir
 webide
