@@ -35,7 +35,9 @@ flameshot
 freedesktop
 fwupd
 geary
+GGML
 glxinfo
+gofmt
 goldmark
 gosec
 govulncheck
@@ -68,6 +70,7 @@ LVFS
 Mailcatcher
 mavproxy
 minicom
+mkvmerge
 mongodump
 mongoid
 mongorestore
@@ -85,6 +88,7 @@ patchelf
 pbzip
 pdftk
 pgcli
+PHOTOPRISM
 pigz
 pngcrush
 poppler
@@ -96,6 +100,7 @@ qgis
 qpdf
 qrencode
 ripgrep
+rpicam
 rtkit
 shaderc
 smartmontools
@@ -103,6 +108,7 @@ solaar
 syncthing
 texlive
 thumbnailers
+TJPGD
 trippy
 unrar
 vaapi

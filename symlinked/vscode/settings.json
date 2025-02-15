@@ -91,5 +91,6 @@
         "plaintext": false,
         "markdown": true,
         "scminput": false
-    }
+    },
+    "idf.hasWalkthroughBeenShown": true
 }
