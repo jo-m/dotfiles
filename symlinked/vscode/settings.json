@@ -88,9 +88,13 @@
     "git.openRepositoryInParentFolders": "always",
     "github.copilot.enable": {
         "*": true,
-        "plaintext": false,
+        "plaintext": true,
         "markdown": true,
         "scminput": false
     },
-    "idf.hasWalkthroughBeenShown": true
+    "idf.hasWalkthroughBeenShown": true,
+    "rust-analyzer.cargo.features": "all",
+    "cmake.showOptionsMovedNotification": false,
+    "explorer.confirmDragAndDrop": true,
+    "window.titleBarStyle": "native"
 }
