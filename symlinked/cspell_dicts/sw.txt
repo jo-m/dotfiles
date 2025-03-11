@@ -1,3 +1,4 @@
+adminer
 aflplusplus
 alsa
 apktool
@@ -5,6 +6,8 @@ appindicator
 aprilgrid
 Asus
 atomix
+autoreconf
+autotools
 avrdude
 bazel
 bazelbuild
@@ -15,8 +18,10 @@ bpftrace
 brcmutil
 brscan
 chezmoi
+chrony
 chsh
 clangd
+clickhouse
 clippy
 dbus
 dconf
@@ -29,6 +34,7 @@ difftastic
 disqus
 distrobox
 dwarffs
+eigen
 exifixer
 exiftool
 flameshot
@@ -48,12 +54,14 @@ gqrx
 grcov
 gstreamer
 hitori
+hyperlocal
 iagno
 icdiff
 imhex
 inkscape
 intellihide
 joplinapp
+kaitai
 keepassxc
 libav
 libheif
@@ -74,8 +82,10 @@ mkvmerge
 mongodump
 mongoid
 mongorestore
+mosquitto
 multimon
 mypy
+nalgebra
 neofetch
 nettools
 networkd
@@ -83,6 +93,8 @@ nightthemeswitcher
 numactl
 nvme
 openvino
+otlpmetrichttp
+pandoc
 papirus
 patchelf
 pbzip
@@ -105,15 +117,18 @@ rtkit
 shaderc
 smartmontools
 solaar
+sqlc
 syncthing
 texlive
 thumbnailers
+timesyncd
 TJPGD
 trippy
 unrar
 vaapi
 vainfo
 valgrind
+verible
 volk
 webcamoid
 whois

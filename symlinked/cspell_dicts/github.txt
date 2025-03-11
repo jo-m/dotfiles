@@ -9,6 +9,7 @@ bbenoist
 beorn
 bmalehorn
 bobvanderlinden
+brianvoe
 campoy
 cespare
 charliermarsh
@@ -19,15 +20,18 @@ creack
 davecgh
 dejavu
 deluan
+Desforges
 earshinov
 edolstra
 embedmd
 espressif
 filippo
 gcampax
+getkin
 ggerganov
 gimli
 goautoneg
+gofakeit
 gonum
 gonuts
 gopkg
@@ -42,6 +46,7 @@ jlaffaye
 jmoiron
 jorgebucaran
 kanboard
+keebio
 klauspost
 lencerf
 lunarg
@@ -59,8 +64,12 @@ ncruces
 netshlix
 nfnt
 numtide
+openobserve
 palettor
 pmezard
+pocketbase
+pressly
+qryn
 remyoudompheng
 rogpeppe
 sbinet
@@ -75,7 +84,9 @@ twxs
 vladimirvivien
 vuetify
 wayou
+wollomatic
 xset
 yzhang
 zerolog
+zinclabs
 ziyasal
