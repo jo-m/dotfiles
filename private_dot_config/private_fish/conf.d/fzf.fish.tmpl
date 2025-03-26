@@ -16,7 +16,7 @@ set -x FZF_DEFAULT_OPTS '--height 80% --border'
 set -x FZF_DEFAULT_COMMAND 'rg --no-ignore-vcs --files --hidden --follow'
 
 # Open files in VSCode
-function fc --wraps=fzf
+function fc --wraps=fzf -d "fzf open files in VSCode"
     fzf --multi | xargs $VSCODE_OR_CODIUM_COMMAND
 end
 
@@ -28,7 +28,7 @@ else
 end
 
 # fuzzy cd
-function fcd --wraps rm --description 'fzf cd, alias for fzf-cd-widget'
+function fcd --wraps rm --description 'fzf cd (fuzzy cd), alias for fzf-cd-widget'
     fzf-cd-widget $argv
 end
 
@@ -58,7 +58,7 @@ end
 
 function fode -d "fzf list and open recent VSCode files/directories"
     set -l selected (
-        rg -o --no-line-number '"path": "/.*[^/]"' "$VSCODE_OR_CODIUM_CONFIG_PATH/storage.json" \
+        rg -o --no-line-number '"path": "/.*[^/]"' "$VSCODE_OR_CODIUM_CONFIG_PATH/Code/User/storage.json" \
             | string replace -a '"path": ' '' \
             | string trim -c '"'\
             | $_FZF_BINARY --query="$argv" --exit-0 \
@@ -82,7 +82,7 @@ function fdelb -d "fzf git select branches to delete"
     end
 end
 
-function fcleanb -d "fzf git select branches to delete where the upstream has gone"
+function fcleanb -d "fzf git select branches to delete where the upstream has disappeared"
     set -l branches_to_delete (
         git for-each-ref --sort=committerdate --format='%(refname:lstrip=2) %(upstream:track)' refs/heads/ | \
         egrep '\[gone\]$' | grep -v "master" | \
@@ -106,7 +106,7 @@ function fco -d "fzf git checkout a branch"
 end
 
 function fhelp -d "Show available fzf wrapper commands"
-    set -l fzf_functions z fcd fssh fenv fode fdelb fcleanb fco
+    set -l fzf_functions z fcd fc fode venv fssh fco fcleanb fdelb
     for func in $fzf_functions
         set -l desc (functions --details --verbose $func | tail -n +5)
         printf "% 10s -- %s\n" "$func" "$desc"
