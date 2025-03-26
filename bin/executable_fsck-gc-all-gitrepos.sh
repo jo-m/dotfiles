@@ -8,5 +8,6 @@ do
     cd "$gitdir/.."
     git fsck --full
     git commit-graph verify
+    git gc
     echo
 done
