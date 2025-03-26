@@ -1,7 +1,7 @@
 abcdefghi
 ACCEPTMBOX
-AMPDU
 actix
+AMPDU
 analyser
 arcconfig
 argcomplete
@@ -25,9 +25,11 @@ cachebust
 cachepush
 Caddyfile
 calib
+cannode
 canonicalize
 canonify
 ccache
+cdeg
 cdylibs
 cfgs
 changeroots
@@ -90,6 +92,7 @@ flate
 fname
 fopenmp
 fourcc
+fovs
 freethreaded
 fuzztarget
 FUZZTESTS
@@ -198,6 +201,7 @@ otadata
 otlptracehttp
 overtemperature
 pdfs
+peap
 picam
 picklecache
 pids
@@ -231,15 +235,17 @@ raspberrypi
 raspis
 rawvideo
 rclone
+rclpy
 rdepend
 realpath
 reborrows
 recalib
-RECVINFO
-RECVMBOX
 RECALIBRATED
 Reconfigurator
+RECVINFO
+RECVMBOX
 regexes
+reinitiate
 relocalization
 replaceme
 repr
@@ -252,6 +258,9 @@ rgbac
 rhosts
 rosbag
 roscore
+roslaunch
+rosnode
+rospy
 rosrun
 rostopic
 rpassword
@@ -316,11 +325,13 @@ titleize
 tmpdir
 tmpfs
 tmpl
+totp
 traceroute
 typechecked
 undistortion
 unistd
 unmetered
+unpairing
 unstripped
 untar
 userspace
@@ -352,3 +363,4 @@ zorblax
 zork
 zorking
 zram
+zwirp

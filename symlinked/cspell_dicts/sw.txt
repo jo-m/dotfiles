@@ -90,6 +90,7 @@ neofetch
 nettools
 networkd
 nightthemeswitcher
+nmcli
 numactl
 nvme
 openvino

@@ -49,7 +49,9 @@ kanboard
 keebio
 klauspost
 lencerf
+lmittmann
 lunarg
+mailhog
 mattn
 mccutchen
 mgechev
@@ -68,6 +70,7 @@ openobserve
 palettor
 pmezard
 pocketbase
+pquerna
 pressly
 qryn
 remyoudompheng
@@ -81,9 +84,11 @@ telcambot
 timethy
 tungstenite
 twxs
+valyala
 vladimirvivien
 vuetify
 wayou
+wneessen
 wollomatic
 xset
 yzhang
