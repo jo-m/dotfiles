@@ -1,4 +1,5 @@
-alexcvzz.vscode-sqlite
+42crunch.vscode-openapi
+a-h.templ
 bazelbuild.vscode-bazel
 bbenoist.nix
 bmalehorn.vscode-fish
@@ -20,6 +21,7 @@ redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
 streetsidesoftware.code-spell-checker
+tamasfe.even-better-toml
 twxs.cmake
 vue.volar
 wayou.vscode-todo-highlight

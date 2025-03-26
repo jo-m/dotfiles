@@ -96,5 +96,9 @@
     "rust-analyzer.cargo.features": "all",
     "cmake.showOptionsMovedNotification": false,
     "explorer.confirmDragAndDrop": true,
-    "window.titleBarStyle": "native"
+    "window.titleBarStyle": "native",
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "explorer.fileNesting.enabled": false,
+    "explorer.incrementalNaming": "smart"
 }
