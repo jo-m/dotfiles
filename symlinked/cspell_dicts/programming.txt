@@ -28,6 +28,7 @@ calib
 cannode
 canonicalize
 canonify
+caser
 ccache
 cdeg
 cdylibs
@@ -167,6 +168,7 @@ lvgl
 makeflags
 maxdepth
 mdns
+Mesg
 metapackage
 metapackages
 migratecmd
@@ -206,6 +208,7 @@ picam
 picklecache
 pids
 pinia
+Placemark
 pngfiles
 powerline
 poweroff
@@ -327,6 +330,8 @@ tmpfs
 tmpl
 totp
 traceroute
+trkpt
+trkseg
 typechecked
 undistortion
 unistd
