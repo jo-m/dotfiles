@@ -66,6 +66,7 @@ devcontainer
 devel
 dind
 direnv
+disko
 dndebug
 Dockerfiles
 docstrings
@@ -165,6 +166,7 @@ LOGV
 luma
 luxon
 lvgl
+lvmpool
 makeflags
 maxdepth
 mdns
@@ -199,6 +201,7 @@ OLED
 ondemand
 openapi
 OPENMP
+optimise
 otadata
 otlptracehttp
 overtemperature
@@ -228,6 +231,7 @@ pythonpath
 PYTHONUNBUFFERED
 qcserial
 quadhd
+quadlet
 quadwp
 quantizer
 quantizers
@@ -339,6 +343,7 @@ unmetered
 unpairing
 unstripped
 untar
+userns
 userspace
 vhdl
 virtualisation

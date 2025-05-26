@@ -63,6 +63,7 @@ intellihide
 joplinapp
 kaitai
 keepassxc
+kitchenowl
 libav
 libheif
 libsystemd
@@ -75,6 +76,7 @@ losslesscut
 lshw
 luks
 LVFS
+lynis
 Mailcatcher
 mavproxy
 minicom

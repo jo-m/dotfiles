@@ -54,6 +54,7 @@ lunarg
 mailhog
 mattn
 mccutchen
+mendhak
 mgechev
 miniz
 mirrexagon
@@ -78,11 +79,13 @@ remyoudompheng
 rogpeppe
 sbinet
 securego
+SEIARO
 Shpak
 sidevesh
 takey
 telcambot
 timethy
+tombursch
 tungstenite
 twpayne
 twxs
