@@ -1,7 +1,9 @@
 # Dotfiles (Chezmoi)
 
-This assumes the system setup as per https://github.com/jo-m/nixos-config/.
-For stock Ubuntu, see below.
+This assumes the system setup as per https://github.com/jo-m/nixos/.
+Stock Ubuntu is also possible, see below.
+
+## Install
 
 ```bash
 # Install
@@ -41,7 +43,9 @@ dconf load / < dconf/dconf.ini
 - `F9` Chrome
 - `F10` Firefox
 
-## On Ubuntu 24.04 LTS
+## Ubuntu setup
+
+Currently, Ubuntu 24.04 LTS.
 
 ```bash
 sudo apt-get install git fish curl wget tmux ripgrep fzf fonts-powerline
