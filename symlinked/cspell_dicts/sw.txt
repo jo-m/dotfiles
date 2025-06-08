@@ -120,6 +120,7 @@ rtkit
 shaderc
 smartmontools
 solaar
+sopsdiffer
 sqlc
 syncthing
 texlive

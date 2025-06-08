@@ -118,6 +118,7 @@ healthcheck
 HHMMSSZ
 highlevel
 hoster
+hostmetrics
 hostnames
 hotspot
 hpoint
@@ -203,6 +204,7 @@ openapi
 OPENMP
 optimise
 otadata
+otlphttp
 otlptracehttp
 overtemperature
 pdfs
@@ -260,6 +262,7 @@ representer
 reprojection
 reqwest
 rescan
+resourcedetection
 retagging
 rgbac
 rhosts
@@ -307,6 +310,7 @@ staticcheck
 stderrlog
 stdev
 stdlib
+STNODEFAULTFOLDER
 stretchr
 strippedspecsfiles
 strs
@@ -372,5 +376,6 @@ zeroconf
 zorblax
 zork
 zorking
+zpages
 zram
 zwirp

@@ -13,6 +13,7 @@ brianvoe
 campoy
 cespare
 charliermarsh
+codeberg
 codeium
 colorchoice
 corasick
@@ -25,6 +26,7 @@ earshinov
 edolstra
 embedmd
 espressif
+ferrishare
 filippo
 gcampax
 getkin
@@ -36,6 +38,7 @@ gonum
 gonuts
 gopkg
 gruntfuggly
+hemmelig
 honnef
 hplot
 iliazeus
@@ -51,6 +54,7 @@ klauspost
 lencerf
 lmittmann
 lunarg
+lyqht
 mailhog
 mattn
 mccutchen
@@ -75,6 +79,7 @@ pocketbase
 pquerna
 pressly
 qryn
+readeck
 remyoudompheng
 rogpeppe
 sbinet
@@ -85,7 +90,9 @@ sidevesh
 takey
 telcambot
 timethy
+tobiasmarschner
 tombursch
+traggo
 tungstenite
 twpayne
 twxs
