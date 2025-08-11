@@ -23,6 +23,7 @@ chsh
 clangd
 clickhouse
 clippy
+cryptsetup
 dbus
 dconf
 ddcci
@@ -58,6 +59,7 @@ hyperlocal
 iagno
 icdiff
 imhex
+Impermenance
 inkscape
 intellihide
 joplinapp
@@ -72,6 +74,7 @@ libvdpau
 linssid
 locomotivecms
 logomenu
+losetup
 losslesscut
 lshw
 luks
@@ -89,6 +92,7 @@ multimon
 mypy
 nalgebra
 neofetch
+netavark
 nettools
 networkd
 nightthemeswitcher
@@ -97,8 +101,10 @@ numactl
 nvme
 openvino
 otlpmetrichttp
+OVMF
 pandoc
 papirus
+passt
 patchelf
 pbzip
 pdftk
@@ -114,14 +120,18 @@ pulseaudio
 qgis
 qpdf
 qrencode
+repart
 ripgrep
 rpicam
 rtkit
+sbctl
+sbsign
 shaderc
 smartmontools
 solaar
 sopsdiffer
 sqlc
+swtpm
 syncthing
 texlive
 thumbnailers
@@ -129,10 +139,12 @@ timesyncd
 TJPGD
 trippy
 unrar
+uuidgen
 vaapi
 vainfo
 valgrind
 verible
+virsh
 volk
 webcamoid
 whois

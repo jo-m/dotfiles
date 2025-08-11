@@ -4,6 +4,7 @@ bazelbuild.vscode-bazel
 bbenoist.nix
 bmalehorn.vscode-fish
 charliermarsh.ruff
+docker.docker
 earshinov.permute-lines
 earshinov.simple-alignment
 espressif.esp-idf-extension
@@ -13,6 +14,7 @@ hashicorp.hcl
 iliazeus.vscode-ansi
 lencerf.beancount
 llvm-vs-code-extensions.vscode-clangd
+mitsuhiko.insta
 mkhl.direnv
 ms-python.debugpy
 ms-python.python
@@ -20,6 +22,7 @@ naumovs.color-highlight
 redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
+rust-lang.rust-analyzer
 streetsidesoftware.code-spell-checker
 tamasfe.even-better-toml
 twxs.cmake

@@ -11,12 +11,15 @@ Automigrate
 autorest
 autostitching
 avgdev
+backdoors
 bksp
 blackbox
 blackboxes
 blockinfile
 blorb
 blorbing
+bogomips
+BOOTX
 brcmfmac
 buildtool
 buildx
@@ -36,6 +39,7 @@ cfgs
 changeroots
 chrono
 classmethod
+cloudimg
 cmath
 codelenses
 colour
@@ -111,8 +115,10 @@ GOARCH
 GOARM
 gopath
 gopls
+graphroot
 grayscale
 groupname
+growfs
 GTEST
 healthcheck
 HHMMSSZ
@@ -181,6 +187,7 @@ mkdirs
 moderncv
 moretests
 mosi
+mqtts
 muahahah
 nanos
 ndarray
@@ -189,6 +196,7 @@ nixdev
 nixops
 nixos
 nixpkgs
+noautomout
 nocheck
 nonblocking
 noresult
@@ -206,9 +214,11 @@ optimise
 otadata
 otlphttp
 otlptracehttp
+overlayfs
 overtemperature
 pdfs
 peap
+pflash
 picam
 picklecache
 pids
@@ -221,6 +231,7 @@ projbuild
 promauto
 promhttp
 publicshare
+pubring
 punct
 pushconstant
 pyclass
@@ -231,6 +242,7 @@ pymodule
 pytest
 pythonpath
 PYTHONUNBUFFERED
+qcow
 qcserial
 quadhd
 quadlet
@@ -282,6 +294,7 @@ rtpjpegpay
 rustc
 rustls
 rustup
+sbkeys
 SCANSCHEDULE
 sclk
 scopeguard
@@ -305,6 +318,7 @@ SPIR
 sqlx
 ssids
 ssrc
+statefully
 statemachine
 staticcheck
 stderrlog
@@ -337,10 +351,13 @@ tmpdir
 tmpfs
 tmpl
 totp
+tpmstate
 traceroute
 trkpt
 trkseg
 typechecked
+ubuntujammy
+UEFI
 undistortion
 unistd
 unmetered
@@ -349,7 +366,9 @@ unstripped
 untar
 userns
 userspace
+veritysetup
 vhdl
+virtio
 virtualisation
 vite
 vsamp

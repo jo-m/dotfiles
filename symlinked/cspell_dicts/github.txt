@@ -22,6 +22,7 @@ davecgh
 dejavu
 deluan
 Desforges
+dialoguer
 earshinov
 edolstra
 embedmd
@@ -71,6 +72,7 @@ navidrome
 ncruces
 netshlix
 nfnt
+nikstur
 numtide
 openobserve
 palettor
