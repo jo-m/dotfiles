@@ -58,7 +58,7 @@ end
 
 function fode -d "fzf list and open recent VSCode files/directories"
     set -l selected (
-        rg -o --no-line-number '"path": "/.*[^/]"' "$VSCODE_OR_CODIUM_CONFIG_PATH/Code/User/storage.json" \
+        rg -o --no-line-number '"path": "/.*[^/]"' "$VSCODE_OR_CODIUM_CONFIG_PATH/User/storage.json" \
             | string replace -a '"path": ' '' \
             | string trim -c '"'\
             | $_FZF_BINARY --query="$argv" --exit-0 \
