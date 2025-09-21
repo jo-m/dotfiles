@@ -111,4 +111,7 @@ function fhelp -d "Show available fzf wrapper commands"
         set -l desc (functions --details --verbose $func | tail -n +5)
         printf "% 10s -- %s\n" "$func" "$desc"
     end
+    printf "% 10s -- %s\n" "Ctrl+T" "Insert file name"
+    printf "% 10s -- %s\n" "Ctrl+R" "Search history"
+    printf "% 10s -- %s\n" "Alt+C" "CD"
 end
