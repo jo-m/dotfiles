@@ -6,7 +6,7 @@
 
 #set page(paper: "a4", flipped: true, margin: 3em)
 
-#set text(font: "IBM Plex Sans", size: 9pt, weight: "light")
+#set text(font: "Brandon Grotesque", size: 9pt, weight: "light")
 #set strong(delta: 200)
 #show heading.where(level: 1): set text(size: 15pt)
 #show heading.where(level: 2): set text(size: 9pt)
