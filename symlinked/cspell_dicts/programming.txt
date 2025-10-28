@@ -225,6 +225,7 @@ pids
 pinia
 Placemark
 pngfiles
+polkit
 powerline
 poweroff
 projbuild
@@ -329,12 +330,15 @@ stretchr
 strippedspecsfiles
 strs
 struct
+strverscmp
 subcheck
 subchecks
 subproc
 subshape
 substate
 substates
+substituters
+SUIDSGID
 tegra
 tempdir
 tempfile
@@ -353,6 +357,7 @@ tmpl
 totp
 tpmstate
 traceroute
+trixie
 trkpt
 trkseg
 typechecked
@@ -384,10 +389,12 @@ worktrees
 WROOM
 Wshadow
 Wsign
+Xauthority
 xret
 Xtensa
 xticklabels
 xticks
+XWAYLAND
 ylabel
 yret
 YUYV

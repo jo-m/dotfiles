@@ -44,6 +44,8 @@ fwupd
 geary
 GGML
 glxinfo
+gnused
+gnutar
 gofmt
 goldmark
 gosec
@@ -148,7 +150,9 @@ virsh
 volk
 webcamoid
 whois
+xcalc
 xhci
+xhost
 xournalpp
 xvfb
 zbar
