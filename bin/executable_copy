@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -eou pipefail
+
+# xclip
+if command -v xclip >/dev/null 2>&1; then
+    exec xclip -selection clipboard "$@"
+# wl-clipboard
+elif command -v wl-copy >/dev/null 2>&1; then
+    exec wl-copy "$@"
+fi
