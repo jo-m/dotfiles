@@ -67,3 +67,12 @@ fisher install jethrokuan/z
 chezmoi cd
 tar cvjf ~/Downloads/chezmoi.tar.gz --strip-components=1 ../chezmoi/
 ```
+
+## Cheatsheet
+
+```bash
+nix-shell -p typst typstyle
+typstyle -i cheatsheet.typ
+typst compile cheatsheet.typ
+open cheatsheet.pdf
+```
