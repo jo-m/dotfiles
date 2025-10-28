@@ -44,16 +44,16 @@
   // https://github.com/jo-m/qmk_firmware/blob/jo-m/keyboards/keebio/quefrency/keymaps/jo_m_rev1/macros.h
 
   #shortcut_section("Symbols", (
-    ("Degree °", "Caps O O"),
-    ("Grave `", "Fn+ESC"), // Keyboard custom.
-    ("Grave `", "Fn+]"), // Keyboard custom.
-    ("Tilde ~", "Shift+ESC"), // Keyboard custom.
+    ("Compose Key", "Caps Lock"),
+    ("Degree °", "Compose O O"),
+    ("Grave `", "Fn + ESC"), // Keyboard custom.
+    ("Grave `", "Fn + ]"), // Keyboard custom.
+    ("Tilde ~", "Shift + ESC"), // Keyboard custom.
   ))
 
-  #shortcut_section("Gnome", (
-    ("Compose Key", "Caps"),
-    ("Show Desktop", "Super+D"),
-    ("Search", "Ctrl+Space"),
+  #shortcut_section("Window Manager", (
+    // ("Show Desktop", "Super + D"),
+    // ("Search", "Ctrl + Space"),
     ("File manager", "F1, Fn + 1"),
     ("Switch to dark theme", "F6, Fn + 6"),
     ("IDE", "F7, Fn + 7"),
@@ -63,17 +63,24 @@
   ))
 
   #shortcut_section("Tmux", (
-    ("Prefix Combo", "Ctrl + B"),
+    ("Prefix", "Ctrl + B"),
     ("Toggle statusbar", "Prefix + S"),
-    ("Create Window", "Prefix + C"),
+    // ("Create Window", "Prefix + C"),
     ("Next Window", "Prefix + N"),
     ("Previous Window", "Prefix + P"),
-    ("Find Window", "Prefix + F"),
-    ("Name Window", "Prefix + ,"),
+    // ("Find Window", "Prefix + F"),
+    // ("Name Window", "Prefix + ,"),
     ("Kill Window", "Prefix + &"),
     ("Swap Panes", "Prefix + O"),
     ("Show Pane Numbers", "Prefix + Q"),
     ("Kill Pane", "Prefix + X"),
+    ("Create Window", "Fn + C"), // Keyboard custom.
+    ("Zoom Window", "Fn + Z"), // Keyboard custom.
+  ))
+
+  #colbreak()
+
+  #shortcut_section("Tmux Copy Mode", (
     ("Start Copy Mode", "Prefix + ["),
     ("Start Selection", "Space"),
     ("Clear Selection", "Esc"),
@@ -83,46 +90,47 @@
     ("Cursor to Middle Line", "M"),
     ("Cursor to Top Line", "H"),
     ("Goto Line", ":"),
-    ("Quit Mode", "q"),
+    // ("Quit Mode", "q"),
     ("Search Again", "n"),
     ("Search Backward", "?"),
     ("Search Forward", "/"),
-    // Keyboard custom.
-    ("Create Window", "Fn + C"),
-    ("Zoom Window", "Fn + Z"),
   ))
 
   #shortcut_section("Shell readline", (
-    ("Move to start of line", "Home, Fn + ←"),
-    ("Move to end of line", "End, Fn + →"),
-    ("Move backward one word", "Ctrl + ←"),
-    ("Move forward one word", "Ctrl + →"),
+    // ("Move to start of line", "Home, Fn + ←"),
+    // ("Move to end of line", "End, Fn + →"),
+    // ("Move backward one word", "Ctrl + ←"),
+    // ("Move forward one word", "Ctrl + →"),
     ("Delete to start of line", "Ctrl + U"),
     ("Delete to end of line", "Ctrl + K"),
     ("Delete previous word", "Ctrl + W"),
   ))
 
-
   #shortcut_section("Shell scripts", (
     ("Jump", "z"),
-    ("mkdir + cd", "md"),
+    // ("mkdir + cd", "md"),
     ("mv with lineedit", "mvv"),
-    ("Gnome Trash", "trash"),
+    // ("Gnome Trash", "trash"),
     ("Clipboard — Copy", "copy"),
-    ("Clipboard - Paste", "pasta"),
+    ("Clipboard — Paste", "pasta"),
     ("Clipboard — Keep pasting", "pastas"),
     ("Find emoji", "emoji <kw>"),
     ("Memoize output", "memo <cmd>"),
-    ("Nato spell", "nato <words>"),
+    // ("Nato spell", "nato <words>"),
     ("Dissect URL", "url <url>"),
+    ("Ultimate Plumber", "|& up"),
+    ("Interactive tree view", "broot"),
+    ("Drag files in/out of terminal", "blobdrop"),
   ))
+
+  #colbreak()
 
   #shortcut_section("Shell fzf shortcuts", (
     ("Search files", "Ctrl + T"),
     ("Search history", "Ctrl + R"),
     ("cd", "Alt + C, fcd"),
-    ("venv", "venv"),
-    ("ssh", "fssh"),
+    ("Virtualenv", "venv"),
+    ("SSH", "fssh"),
     ("IDE — Open files", "fc"),
     ("IDE — Open recent files", "fode"),
     ("Git — Delete branch", "fdelb"),
@@ -131,6 +139,4 @@
   ))
 
   // TODO: VSCode shortcuts symlinked/vscode/keybindings.json
-
-  #colbreak()
 ]
