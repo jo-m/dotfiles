@@ -1,7 +1,6 @@
 42crunch.vscode-openapi
 a-h.templ
 bazelbuild.vscode-bazel
-bbenoist.nix
 bmalehorn.vscode-fish
 charliermarsh.ruff
 docker.docker
@@ -12,12 +11,16 @@ golang.go
 gruntfuggly.todo-tree
 hashicorp.hcl
 iliazeus.vscode-ansi
+jnoortheen.nix-ide
 lencerf.beancount
 llvm-vs-code-extensions.vscode-clangd
 mitsuhiko.insta
 mkhl.direnv
 ms-python.debugpy
 ms-python.python
+ms-python.vscode-pylance
+ms-python.vscode-python-envs
+myriad-dreamin.tinymist
 naumovs.color-highlight
 redhat.vscode-commons
 redhat.vscode-xml
