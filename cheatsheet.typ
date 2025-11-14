@@ -136,6 +136,7 @@
     ("Git — Delete branch", "fdelb"),
     ("Git — Clean up branches", "fcleanb"),
     ("Git — Checkout branch", "fco"),
+    ("fzf-make", "fmake"),
   ))
 
   // TODO: VSCode shortcuts symlinked/vscode/keybindings.json

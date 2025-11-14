@@ -1,7 +1,7 @@
 # Dotfiles (Chezmoi)
 
 This assumes the system setup as per https://github.com/jo-m/nixos/.
-Stock Ubuntu is also possible, see below.
+Ubuntu is also possible, see below.
 
 ## Install
 
@@ -45,7 +45,7 @@ dconf load / < dconf/dconf.ini
 
 ## Ubuntu setup
 
-Currently, Ubuntu 24.04 LTS.
+Currently, Ubuntu 22.04 LTS.
 
 ```bash
 sudo apt-get install git fish curl wget tmux ripgrep fzf fonts-powerline
@@ -57,6 +57,8 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
     source && fisher install jorgebucaran/fisher
 # z https://github.com/jethrokuan/z
 fisher install jethrokuan/z
+# https://github.com/laughedelic/pisces
+fisher install laughedelic/pisces
 
 # Now, you can follow the "Install" steps at the top.
 ```
