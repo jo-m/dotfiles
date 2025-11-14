@@ -104,6 +104,8 @@
     ("Delete to start of line", "Ctrl + U"),
     ("Delete to end of line", "Ctrl + K"),
     ("Delete previous word", "Ctrl + W"),
+    ("Page UP, DOWN", "Fn + ↑, Fn + ↓"),
+    ("HOME, END", "Fn + ←, Fn + →"),
   ))
 
   #shortcut_section("Shell scripts", (
@@ -122,8 +124,6 @@
     ("Interactive tree view", "broot"),
     ("Drag files in/out of terminal", "blobdrop"),
   ))
-
-  #colbreak()
 
   #shortcut_section("Shell fzf shortcuts", (
     ("Search files", "Ctrl + T"),
