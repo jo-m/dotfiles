@@ -140,6 +140,8 @@ thumbnailers
 timesyncd
 TJPGD
 trippy
+typst
+typstyle
 unrar
 uuidgen
 vaapi
