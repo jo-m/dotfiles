@@ -1,0 +1,11 @@
+
+{
+    "current_date_iso": {
+        "prefix": "@date",
+        "description": "Insert current ISO date",
+        "scope": "",
+        "body": [
+            "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+        ]
+    }
+}

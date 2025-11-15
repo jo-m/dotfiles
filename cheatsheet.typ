@@ -139,5 +139,9 @@
     ("fzf-make", "fmake"),
   ))
 
+  #shortcut_section("VSCodium", (
+    ("Insert ISO date", "Ctrl + ;"),
+  ))
+
   // TODO: VSCode shortcuts symlinked/vscode/keybindings.json
 ]
