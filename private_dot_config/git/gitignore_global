@@ -41,3 +41,4 @@ mav.tlog.raw
 .mypy_cache/
 .ccache
 .arcconfig
+.claude
