@@ -60,6 +60,8 @@
     ("Terminal", "F8, Fn + 8"),
     ("Chrome", "F9, Fn + 9"),
     ("Firefox", "F10, Fn + 0"),
+    ("Move Window", "Super + LMB"),
+    ("Resize Window", "Super + RMB"),
   ))
 
   #shortcut_section("Tmux", (
