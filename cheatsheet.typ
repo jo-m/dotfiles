@@ -18,10 +18,15 @@
 
 #let shortcut_section(title, items) = {
   grid(
-    columns: (2fr, 1fr), inset: (y: 0.6em), column-gutter: 2em, grid.cell(
+    columns: (2fr, 1fr),
+    inset: (y: 0.6em),
+    column-gutter: 2em,
+    grid.cell(
       colspan: 2,
       heading(level: 2, upper(title)),
-    ), grid.hline(stroke: 1.5pt + black), ..items
+    ),
+    grid.hline(stroke: 1.5pt + black),
+    ..items
       .map(pair => (
         // Description
         text(pair.at(0)),
