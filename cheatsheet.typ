@@ -57,8 +57,8 @@
   ))
 
   #shortcut_section("Window Manager", (
-    // ("Show Desktop", "Super + D"),
-    // ("Search", "Ctrl + Space"),
+    ("Show Desktop", "Super + D"),
+    ("Search", "Ctrl + Space"),
     ("File manager", "F1, Fn + 1"),
     ("Switch to dark theme", "F6, Fn + 6"),
     ("IDE", "F7, Fn + 7"),
@@ -67,40 +67,6 @@
     ("Firefox", "F10, Fn + 0"),
     ("Move Window", "Super + LMB"),
     ("Resize Window", "Super + RMB"),
-  ))
-
-  #shortcut_section("Tmux", (
-    ("Prefix", "Ctrl + B"),
-    ("Toggle statusbar", "Prefix + S"),
-    // ("Create Window", "Prefix + C"),
-    ("Next Window", "Prefix + N"),
-    ("Previous Window", "Prefix + P"),
-    // ("Find Window", "Prefix + F"),
-    // ("Name Window", "Prefix + ,"),
-    ("Kill Window", "Prefix + &"),
-    ("Swap Panes", "Prefix + O"),
-    ("Show Pane Numbers", "Prefix + Q"),
-    ("Kill Pane", "Prefix + X"),
-    ("Create Window", "Fn + C"), // Keyboard custom.
-    ("Zoom Window", "Fn + Z"), // Keyboard custom.
-  ))
-
-  #colbreak()
-
-  #shortcut_section("Tmux Copy Mode", (
-    ("Start Copy Mode", "Prefix + ["),
-    ("Start Selection", "Space"),
-    ("Clear Selection", "Esc"),
-    ("Copy Selection", "Enter"),
-    ("Paste Buffer", "Prefix + ]"),
-    ("Cursor to Bottom Line", "L"),
-    ("Cursor to Middle Line", "M"),
-    ("Cursor to Top Line", "H"),
-    ("Goto Line", ":"),
-    // ("Quit Mode", "q"),
-    ("Search Again", "n"),
-    ("Search Backward", "?"),
-    ("Search Forward", "/"),
   ))
 
   #shortcut_section("Shell readline", (
@@ -114,6 +80,12 @@
     ("Page UP, DOWN", "Fn + ↑, Fn + ↓"),
     ("HOME, END", "Fn + ←, Fn + →"),
   ))
+
+  #shortcut_section("VSCodium", (
+    ("Insert ISO date", "Ctrl + ;"),
+  ))
+
+  #colbreak()
 
   #shortcut_section("Shell scripts", (
     ("Jump", "z"),
@@ -146,9 +118,45 @@
     ("fzf-make", "fmake"),
   ))
 
-  #shortcut_section("VSCodium", (
-    ("Insert ISO date", "Ctrl + ;"),
+  #colbreak()
+
+  #shortcut_section("Tmux", (
+    ("Prefix", "Ctrl + B"),
+    ("Toggle statusbar", "Prefix + S"),
+    // ("Create Window", "Prefix + C"),
+    ("Next Window", "Prefix + N"),
+    ("Previous Window", "Prefix + P"),
+    // ("Find Window", "Prefix + F"),
+    // ("Name Window", "Prefix + ,"),
+    ("Kill Window", "Prefix + &"),
+    ("Swap Panes", "Prefix + O"),
+    ("Show Pane Numbers", "Prefix + Q"),
+    ("Kill Pane", "Prefix + X"),
+    ("Create Window", "Fn + C"), // Keyboard custom.
+    ("Zoom Window", "Fn + Z"), // Keyboard custom.
   ))
+
+
+
+  #shortcut_section("Tmux Copy Mode", (
+    ("Start Copy Mode", "Prefix + ["),
+    ("Start Selection", "Space"),
+    ("Clear Selection", "Esc"),
+    ("Copy Selection", "Enter"),
+    ("Paste Buffer", "Prefix + ]"),
+    ("Cursor to Bottom Line", "L"),
+    ("Cursor to Middle Line", "M"),
+    ("Cursor to Top Line", "H"),
+    ("Goto Line", ":"),
+    // ("Quit Mode", "q"),
+    ("Search Again", "n"),
+    ("Search Backward", "?"),
+    ("Search Forward", "/"),
+  ))
+
+
+
+
 
   // TODO: VSCode shortcuts symlinked/vscode/keybindings.json
 ]
