@@ -1,6 +1,7 @@
 42crunch.vscode-openapi
 a-h.templ
 bazelbuild.vscode-bazel
+bbenoist.nix
 bmalehorn.vscode-fish
 charliermarsh.ruff
 docker.docker
@@ -14,6 +15,7 @@ iliazeus.vscode-ansi
 jnoortheen.nix-ide
 lencerf.beancount
 llvm-vs-code-extensions.vscode-clangd
+matthewpi.caddyfile-support
 mitsuhiko.insta
 mkhl.direnv
 ms-python.debugpy

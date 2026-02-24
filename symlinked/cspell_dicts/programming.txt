@@ -339,6 +339,7 @@ substate
 substates
 substituters
 SUIDSGID
+sysupdated
 tegra
 tempdir
 tempfile
