@@ -122,5 +122,5 @@
     },
     "rust-analyzer.check.command": "clippy",
     "github.copilot.nextEditSuggestions.enabled": true,
-    "workbench.preferredDarkColorTheme": "Visual Studio Light"
+    "workbench.preferredDarkColorTheme": "Visual Studio Dark"
 }
