@@ -57,8 +57,6 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
     source && fisher install jorgebucaran/fisher
 # z https://github.com/jethrokuan/z
 fisher install jethrokuan/z
-# https://github.com/laughedelic/pisces
-fisher install laughedelic/pisces
 
 # Now, you can follow the "Install" steps at the top.
 ```
