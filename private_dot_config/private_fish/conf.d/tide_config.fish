@@ -18,6 +18,15 @@ set --local _prompt_colors_red       red
 set --local _prompt_colors_white     white
 set --local _prompt_colors_yellow    yellow
 
+# Full colors
+set --local _prompt_colors_black     '#303030'
+set --local _prompt_colors_blue      '#1581FF'
+set --local _prompt_colors_brblack   '#787878'
+set --local _prompt_colors_green     '#6AB017'
+set --local _prompt_colors_red       '#E1321A'
+set --local _prompt_colors_white     '#F2F2F2'
+set --local _prompt_colors_yellow    '#FFC005'
+
 #
 # Custom segment items
 #
