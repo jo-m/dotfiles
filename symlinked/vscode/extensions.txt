@@ -24,6 +24,7 @@ ms-python.vscode-pylance
 ms-python.vscode-python-envs
 myriad-dreamin.tinymist
 naumovs.color-highlight
+raidou.calc
 redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
