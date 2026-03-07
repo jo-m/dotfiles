@@ -1,0 +1,14 @@
+# https://ghostty.org/docs/config
+
+background = 000000
+foreground = ffffff
+background-opacity = 0.78
+
+font-family = Iosevka
+font-size = 10
+
+keybind = global:f12=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-size = 90%,100%
+quick-terminal-screen = mouse
+quick-terminal-animation-duration = 0
