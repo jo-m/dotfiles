@@ -55,11 +55,15 @@ set --global tide_prompt_transient_enabled              true
 
 # Left prompt
 set --global tide_left_prompt_items                     private_mode superuser jobs username hostname pwd git direnv rustc go python
-set --global tide_left_prompt_separator_same_color      ''
+set --global tide_left_prompt_separator_same_color      '❯'
+set --global tide_left_prompt_separator_diff_color      '' #      
+set --global tide_left_prompt_prefix                    ''
+set --global tide_left_prompt_suffix                    ''
 
 # Right prompt
 set --global tide_right_prompt_items                    status cmd_duration
 set --global tide_right_prompt_prefix                   ''
+set --global tide_right_prompt_suffix                   ''
 set --global tide_right_prompt_separator_same_color     ''
 set --global tide_right_prompt_separator_diff_color     ''
 
