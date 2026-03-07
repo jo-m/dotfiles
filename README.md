@@ -1,7 +1,7 @@
 # Dotfiles (Chezmoi)
 
 This assumes the system setup as per https://github.com/jo-m/nixos/.
-Ubuntu is also possible, see below.
+Ubuntu is also supported, see below.
 
 ## Install
 
@@ -48,6 +48,10 @@ dconf load / < dconf/dconf.ini
 Currently, Ubuntu 22.04 LTS.
 
 ```bash
+# Add recent fish from PPA (https://launchpad.net/~fish-shell)
+sudo add-apt-repository ppa:fish-shell/release-4
+sudo apt update
+
 sudo apt-get install git fish curl wget tmux ripgrep fzf fonts-powerline
 sudo snap install chezmoi --classic
 chsh -s /usr/bin/fish
@@ -57,7 +61,9 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
     source && fisher install jorgebucaran/fisher
 # z https://github.com/jethrokuan/z
 fisher install jethrokuan/z
+fisher install IlanCosman/tide@v6
 
+# Manually install fonts for tide from https://github.com/IlanCosman/tide?tab=readme-ov-file#fonts.
 # Now, you can follow the "Install" steps at the top.
 ```
 
