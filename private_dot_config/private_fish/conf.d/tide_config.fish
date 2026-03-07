@@ -1,6 +1,9 @@
 # https://github.com/IlanCosman/tide/wiki/Configuration#prompt-variables
 # https://github.com/IlanCosman/tide/tree/main/functions
 
+# In order for this to render correctly, you will need a
+# [Powerline-patched font](https://gist.github.com/1595572).
+
 #
 # Custom segment items
 #
@@ -23,83 +26,65 @@ function _tide_item_hostname
     end
 end
 
-# Copied and modified from https://github.com/IlanCosman/tide/blob/main/functions/_tide_item_git.fish.
-# Differences:
-# - Do not display stashes and conflicted, and reorder
-# - Operation names uppercase and with a ⚒ icon
+#
+# Git segment
+#
+
+function _tide_item_git_custom_inside_git_dir
+    git rev-parse --is-inside-work-tree >/dev/null 2>&1
+    return $status
+end
+
+function _tide_item_git_custom_git_on_branch
+    set -l git_status (git branch --show-current 2>/dev/null)
+    test -n "$git_status"
+    return $status
+end
+
+# https://fishshell.com/docs/current/cmds/fish_git_prompt.html
 function _tide_item_git_custom
-    if git branch --show-current 2>/dev/null | string shorten -"$tide_git_truncation_strategy"m$tide_git_truncation_length | read -l location
-        git rev-parse --git-dir --is-inside-git-dir | read -fL gdir in_gdir
-        set location $_tide_location_color$location
-    else if test $pipestatus[1] != 0
-        return
-    else if git tag --points-at HEAD | string shorten -"$tide_git_truncation_strategy"m$tide_git_truncation_length | read location
-        git rev-parse --git-dir --is-inside-git-dir | read -fL gdir in_gdir
-        set location '#'$_tide_location_color$location
+    if not _tide_item_git_custom_inside_git_dir
+        return 0
+    end
+
+    set --global __fish_git_prompt_show_informative_status   false
+    set --global __fish_git_prompt_use_informative_chars     true
+    set --global __fish_git_prompt_showuntrackedfiles        true
+    set --global __fish_git_prompt_showdirtystate            true
+    set --global __fish_git_prompt_showupstream              auto
+
+    set --global __fish_git_prompt_showstashstate            false
+    set --global __fish_git_prompt_shorten_branch_len        50
+    set --global __fish_git_prompt_describe_style            branch
+    set --global __fish_git_prompt_char_stateseparator       ''
+
+    set --global __fish_git_prompt_char_cleanstate           '✔ '
+    set --global __fish_git_prompt_char_dirtystate           '±'   # Unicode PLUS-MINUS SIGN
+    set --global __fish_git_prompt_char_invalidstate         '✖ '
+    set --global __fish_git_prompt_char_stagedstate          '● ' # Unicode BOLD SIX SPOKED ASTERISK
+    set --global __fish_git_prompt_char_stashstate           ''
+    set --global __fish_git_prompt_char_untrackedfiles       '🞷 ' # Unicode BLACK CIRCLE
+    set --global __fish_git_prompt_char_upstream_ahead       '↑ '
+    set --global __fish_git_prompt_char_upstream_behind      '↓ '
+    set --global __fish_git_prompt_char_upstream_diverged    '↓↑ '
+    set --global __fish_git_prompt_char_upstream_equal       ''
+    set --global __fish_git_prompt_char_upstream_prefix      ''
+    set --local _tide_item_git_custom_operation_sym          '⚒ ' # Unicode HAMMER AND PICK
+    set --local _tide_item_git_custom_branch_sym             '' # Powerline BRANCH SYMBOL
+    set --local _tide_item_git_custom_detached_sym           '➦' # Unicode HEAVY BLACK CURVED UPWARDS AND RIGHTWARDS ARROW
+    # set __fish_git_prompt_char_untrackedfiles '✸' # 🗙 ❋ ❇
+
+    set --local git_info (string replace "|" " $_tide_item_git_custom_operation_sym" (fish_git_prompt "%s"))
+
+    if _tide_item_git_custom_git_on_branch
+        set git_info "$_tide_item_git_custom_branch_sym $git_info"
     else
-        git rev-parse --git-dir --is-inside-git-dir --short HEAD | read -fL gdir in_gdir location
-        set location @$_tide_location_color$location
+        set git_info "$_tide_item_git_custom_detached_sym $git_info"
     end
 
-    # Operation
-    if test -d $gdir/rebase-merge
-        # Turn ANY into ALL, via double negation
-        if not path is -v $gdir/rebase-merge/{msgnum,end}
-            read -f step <$gdir/rebase-merge/msgnum
-            read -f total_steps <$gdir/rebase-merge/end
-        end
-        test -f $gdir/rebase-merge/interactive && set -f operation rebase-i || set -f operation rebase-m
-    else if test -d $gdir/rebase-apply
-        if not path is -v $gdir/rebase-apply/{next,last}
-            read -f step <$gdir/rebase-apply/next
-            read -f total_steps <$gdir/rebase-apply/last
-        end
-        if test -f $gdir/rebase-apply/rebasing
-            set -f operation rebase
-        else if test -f $gdir/rebase-apply/applying
-            set -f operation am
-        else
-            set -f operation am/rebase
-        end
-    else if test -f $gdir/MERGE_HEAD
-        set -f operation merge
-    else if test -f $gdir/CHERRY_PICK_HEAD
-        set -f operation cherry-pick
-    else if test -f $gdir/REVERT_HEAD
-        set -f operation revert
-    else if test -f $gdir/BISECT_LOG
-        set -f operation bisect
-    end
-
-    # Git status/stash + Upstream behind/ahead
-    test $in_gdir = true && set -l _set_dir_opt -C $gdir/..
-    # Suppress errors in case we are in a bare repo or there is no upstream
-    set -l stat (git $_set_dir_opt --no-optional-locks status --porcelain 2>/dev/null)
-    string match -qr '(0|(?<stash>.*))\n(0|(?<conflicted>.*))\n(0|(?<staged>.*))
-(0|(?<dirty>.*))\n(0|(?<untracked>.*))(\n(0|(?<behind>.*))\t(0|(?<ahead>.*)))?' \
-        "$(git $_set_dir_opt stash list 2>/dev/null | count
-        string match -r ^UU $stat | count
-        string match -r ^[ADMR] $stat | count
-        string match -r ^.[ADMR] $stat | count
-        string match -r '^\?\?' $stat | count
-        git rev-list --count --left-right @{upstream}...HEAD 2>/dev/null)"
-
-    if test -n "$operation$conflicted"
-        set -g tide_git_bg_color $tide_git_bg_color_urgent
-    else if test -n "$staged$dirty$untracked"
-        set -g tide_git_bg_color $tide_git_bg_color_unstable
-    end
-
-    if test -n "$operation"
-        set -f operation '⚒ '(string upper "$operation")
-    end
-
-    _tide_print_item git $_tide_location_color$tide_git_icon' ' (set_color white; echo -ns $location
-        set_color $tide_git_color_upstream; echo -ns ' ⇣'$behind ' ⇡'$ahead
-        set_color $tide_git_color_staged; echo -ns '● '
-        set_color $tide_git_color_untracked; echo -ns '🞷 '
-        set_color $tide_git_color_dirty; echo -ns '±'
-        set_color $tide_git_color_operation; echo -ns ' '$operation ' '$step/$total_steps)
+    _tide_print_item git "$_tide_location_color$tide_git_icon "(
+        set_color $tide_git_color_upstream;
+        echo -ns $git_info)
 end
 
 #
@@ -177,6 +162,7 @@ set --global tide_pwd_markers                .git Cargo.toml go.mod package.json
 set --global tide_git_bg_color               red
 set --global tide_git_bg_color_unstable      red
 set --global tide_git_bg_color_urgent        red
+set --global tide_git_color                  white
 set --global tide_git_color_branch           white
 set --global tide_git_color_conflicted       white
 set --global tide_git_color_dirty            white
