@@ -211,51 +211,53 @@ end
 # Apply theme
 # ===========================
 
-function fish_prompt
-    set -g __LAST_CMD_RETVAL $status
+if false
+    function fish_prompt
+        set -g __LAST_CMD_RETVAL $status
 
-    # calculate max allowed length for user, hostname and dir
-    set -l user_hostname_dir_allowed_max_len (math --scale=0 $COLUMNS / 2 - 15)
-    if test "$user_hostname_dir_allowed_max_len" -lt 10
-        set user_hostname_dir_allowed_max_len 10
-    end
-    set -l user_len (string length (whoami))
-    set -l host_len (string length (hostname))
-    set -g fish_prompt_pwd_dir_length 0
-    set -l dir_len (string length (prompt_pwd))
-    set -l total_len (math "$user_len + $host_len + $dir_len")
-    if test "$total_len" -gt "$user_hostname_dir_allowed_max_len"
-        set disable_user 1
-        set total_len (math "$total_len - $user_len")
-    end
-    if test "$total_len" -gt "$user_hostname_dir_allowed_max_len"
-        set disable_hostname 1
-        set total_len (math "$total_len - $host_len")
-    end
-    set dir_allowed_max_len 1000
-    if test "$total_len" -gt "$user_hostname_dir_allowed_max_len"
-        set dir_allowed_max_len (math "$user_hostname_dir_allowed_max_len - $total_len")
-        if test "$dir_allowed_max_len" -lt 10
-            set dir_allowed_max_len 10
+        # calculate max allowed length for user, hostname and dir
+        set -l user_hostname_dir_allowed_max_len (math --scale=0 $COLUMNS / 2 - 15)
+        if test "$user_hostname_dir_allowed_max_len" -lt 10
+            set user_hostname_dir_allowed_max_len 10
         end
+        set -l user_len (string length (whoami))
+        set -l host_len (string length (hostname))
+        set -g fish_prompt_pwd_dir_length 0
+        set -l dir_len (string length (prompt_pwd))
+        set -l total_len (math "$user_len + $host_len + $dir_len")
+        if test "$total_len" -gt "$user_hostname_dir_allowed_max_len"
+            set disable_user 1
+            set total_len (math "$total_len - $user_len")
+        end
+        if test "$total_len" -gt "$user_hostname_dir_allowed_max_len"
+            set disable_hostname 1
+            set total_len (math "$total_len - $host_len")
+        end
+        set dir_allowed_max_len 1000
+        if test "$total_len" -gt "$user_hostname_dir_allowed_max_len"
+            set dir_allowed_max_len (math "$user_hostname_dir_allowed_max_len - $total_len")
+            if test "$dir_allowed_max_len" -lt 10
+                set dir_allowed_max_len 10
+            end
+        end
+
+        prompt_status
+        set -q disable_user; or prompt_user
+        set -q disable_hostname; or prompt_hostname
+        prompt_dir "$dir_allowed_max_len"
+        type -q git; and prompt_git
+        prompt_virtual_env
+        prompt_finish
     end
 
-    prompt_status
-    set -q disable_user; or prompt_user
-    set -q disable_hostname; or prompt_hostname
-    prompt_dir "$dir_allowed_max_len"
-    type -q git; and prompt_git
-    prompt_virtual_env
-    prompt_finish
-end
-
-function fish_right_prompt -d "Write out the right prompt"
-    # show error status
-    if [ $__LAST_CMD_RETVAL -ne 0 ]
-        set_color -b $color_status_nonzero_bg
-        set_color $color_status_nonzero_str
-        echo "$__LAST_CMD_RETVAL ↵ "
-        set_color -b normal
-        set_color normal
+    function fish_right_prompt -d "Write out the right prompt"
+        # show error status
+        if [ $__LAST_CMD_RETVAL -ne 0 ]
+            set_color -b $color_status_nonzero_bg
+            set_color $color_status_nonzero_str
+            echo "$__LAST_CMD_RETVAL ↵ "
+            set_color -b normal
+            set_color normal
+        end
     end
 end
