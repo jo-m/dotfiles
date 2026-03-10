@@ -85,7 +85,7 @@ end
 function fcleanb -d "fzf git select branches to delete where the upstream has disappeared"
     set -l branches_to_delete (
         git for-each-ref --sort=committerdate --format='%(refname:lstrip=2) %(upstream:track)' refs/heads/ | \
-        egrep '\[gone\]$' | grep -v "master" | \
+        grep -E '\[gone\]$' | grep -v "master" | \
         awk '{print $1}' | $_FZF_BINARY --multi --exit-0 \
     )
 
