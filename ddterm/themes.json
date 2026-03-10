@@ -1,0 +1,167 @@
+{
+  "default": {
+    "foreground-color": "#ffffff",
+    "background-color": "#000000",
+    "background-opacity": 0.80,
+    "palette": [
+      "#303030", "#e1321a", "#6ab017", "#ffc005",
+      "#1581ff", "#d500bf", "#2cb9f5", "#f2f2f2",
+      "#787878", "#ff361e", "#7bc91f", "#ffd00a",
+      "#6eaeff", "#ff39e2", "#78cbff", "#ffffff"
+    ]
+  },
+  "solarized-dark": {
+    "foreground-color": "#839496",
+    "background-color": "#002b36",
+    "background-opacity": 0.82,
+    "palette": [
+      "#073642", "#dc322f", "#859900", "#b58900",
+      "#268bd2", "#d33682", "#2aa198", "#eee8d5",
+      "#002b36", "#cb4b16", "#586e75", "#657b83",
+      "#839496", "#6c71c4", "#93a1a1", "#fdf6e3"
+    ]
+  },
+  "gruvbox-dark": {
+    "foreground-color": "#ebdbb2",
+    "background-color": "#282828",
+    "background-opacity": 0.82,
+    "palette": [
+      "#282828", "#cc241d", "#98971a", "#d79921",
+      "#458588", "#b16286", "#689d6a", "#a89984",
+      "#928374", "#fb4934", "#b8bb26", "#fabd2f",
+      "#83a598", "#d3869b", "#8ec07c", "#ebdbb2"
+    ]
+  },
+  "nord": {
+    "foreground-color": "#d8dee9",
+    "background-color": "#2e3440",
+    "background-opacity": 0.85,
+    "palette": [
+      "#3b4252", "#bf616a", "#a3be8c", "#ebcb8b",
+      "#5e81ac", "#b48ead", "#88c0d0", "#e5e9f0",
+      "#4c566a", "#bf616a", "#a3be8c", "#ebcb8b",
+      "#81a1c1", "#b48ead", "#8fbcbb", "#eceff4"
+    ]
+  },
+  "dracula": {
+    "foreground-color": "#f8f8f2",
+    "background-color": "#282a36",
+    "background-opacity": 0.82,
+    "palette": [
+      "#21222c", "#ff5555", "#50fa7b", "#f1fa8c",
+      "#bd93f9", "#ff79c6", "#8be9fd", "#f8f8f2",
+      "#6272a4", "#ff6e6e", "#69ff94", "#ffffa5",
+      "#d6acff", "#ff92df", "#a4ffff", "#ffffff"
+    ]
+  },
+  "tokyo-night": {
+    "foreground-color": "#a9b1d6",
+    "background-color": "#1a1b26",
+    "background-opacity": 0.84,
+    "palette": [
+      "#32344a", "#f7768e", "#9ece6a", "#e0af68",
+      "#7aa2f7", "#ad8ee6", "#449dab", "#9699a8",
+      "#444b6a", "#ff7a93", "#b9f27c", "#ff9e64",
+      "#7da6ff", "#bb9af7", "#0db9d7", "#acb0d0"
+    ]
+  },
+  "catppuccin-mocha": {
+    "foreground-color": "#cdd6f4",
+    "background-color": "#1e1e2e",
+    "background-opacity": 0.84,
+    "palette": [
+      "#45475a", "#f38ba8", "#a6e3a1", "#f9e2af",
+      "#89b4fa", "#f5c2e7", "#94e2d5", "#bac2de",
+      "#585b70", "#f38ba8", "#a6e3a1", "#f9e2af",
+      "#89b4fa", "#f5c2e7", "#94e2d5", "#a6adc8"
+    ]
+  },
+  "one-dark": {
+    "foreground-color": "#abb2bf",
+    "background-color": "#282c34",
+    "background-opacity": 0.85,
+    "palette": [
+      "#282c34", "#e06c75", "#98c379", "#e5c07b",
+      "#61afef", "#c678dd", "#56b6c2", "#abb2bf",
+      "#545862", "#e06c75", "#98c379", "#e5c07b",
+      "#61afef", "#c678dd", "#56b6c2", "#c8ccd4"
+    ]
+  },
+  "monokai-pro": {
+    "foreground-color": "#fcfcfa",
+    "background-color": "#2d2a2e",
+    "background-opacity": 0.82,
+    "palette": [
+      "#403e41", "#ff6188", "#a9dc76", "#ffd866",
+      "#78dce8", "#ab9df2", "#78dce8", "#fcfcfa",
+      "#727072", "#ff6188", "#a9dc76", "#ffd866",
+      "#78dce8", "#ab9df2", "#78dce8", "#ffffff"
+    ]
+  },
+  "kanagawa": {
+    "foreground-color": "#dcd7ba",
+    "background-color": "#1f1f28",
+    "background-opacity": 0.84,
+    "palette": [
+      "#16161d", "#c34043", "#76946a", "#c0a36e",
+      "#7e9cd8", "#957fb8", "#6a9589", "#c8c093",
+      "#727169", "#e82424", "#98bb6c", "#e6c384",
+      "#7fb4ca", "#938aa9", "#7aa89f", "#dcd7ba"
+    ]
+  },
+  "cyberpunk": {
+    "foreground-color": "#e0e0e0",
+    "background-color": "#0a0a1a",
+    "background-opacity": 0.78,
+    "palette": [
+      "#1a1a2e", "#ff2e63", "#05d9e8", "#f5d300",
+      "#6c5ce7", "#ff00ff", "#01cdfe", "#e0e0e0",
+      "#4a4a6a", "#ff5277", "#72f1b8", "#fce700",
+      "#a29bfe", "#ff6bcb", "#65e7ff", "#ffffff"
+    ]
+  },
+  "synthwave": {
+    "foreground-color": "#e0d0ff",
+    "background-color": "#1b0030",
+    "background-opacity": 0.8,
+    "palette": [
+      "#2a1a4a", "#fe4450", "#72f1b8", "#fede5d",
+      "#2ee2fa", "#ff7edb", "#03edf9", "#e0d0ff",
+      "#5a4a7a", "#fe4450", "#72f1b8", "#f3e70a",
+      "#36f9f6", "#ff7edb", "#03edf9", "#ffffff"
+    ]
+  },
+  "everforest": {
+    "foreground-color": "#d3c6aa",
+    "background-color": "#272e33",
+    "background-opacity": 0.86,
+    "palette": [
+      "#343f44", "#e67e80", "#a7c080", "#dbbc7f",
+      "#7fbbb3", "#d699b6", "#83c092", "#d3c6aa",
+      "#4a555b", "#e67e80", "#a7c080", "#dbbc7f",
+      "#7fbbb3", "#d699b6", "#83c092", "#e8dfc7"
+    ]
+  },
+  "rosepine": {
+    "foreground-color": "#e0def4",
+    "background-color": "#191724",
+    "background-opacity": 0.84,
+    "palette": [
+      "#26233a", "#eb6f92", "#9ccfd8", "#f6c177",
+      "#31748f", "#c4a7e7", "#ebbcba", "#e0def4",
+      "#6e6a86", "#eb6f92", "#9ccfd8", "#f6c177",
+      "#31748f", "#c4a7e7", "#ebbcba", "#e0def4"
+    ]
+  },
+  "sunset": {
+    "foreground-color": "#ffe0c0",
+    "background-color": "#1a0a00",
+    "background-opacity": 0.8,
+    "palette": [
+      "#2d1500", "#ff4e3a", "#b8cc52", "#ffb347",
+      "#3e8fb0", "#e06c9a", "#53d6c7", "#ffe0c0",
+      "#5a3a20", "#ff6b53", "#d4e157", "#ffc870",
+      "#6cb4d8", "#f09abc", "#76e8d8", "#fff5e6"
+    ]
+  }
+}
