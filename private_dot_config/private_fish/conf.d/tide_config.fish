@@ -178,7 +178,7 @@ set --global tide_pwd_color_dirs            $_prompt_colors_white
 set --global tide_pwd_color_truncated_dirs  $_prompt_colors_white
 set --global tide_pwd_icon                  ''
 set --global tide_pwd_icon_home             ''
-set --global tide_pwd_icon_unwritable       '🚫'
+set --global tide_pwd_icon_unwritable       ' 🚫'
 set --global tide_pwd_markers               .git Cargo.toml go.mod package.json
 
 # Git
