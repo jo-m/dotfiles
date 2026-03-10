@@ -68,6 +68,8 @@ fisher install laughedelic/pisces
 
 # Manually install fonts for tide from https://github.com/IlanCosman/tide?tab=readme-ov-file#fonts.
 # Now, you can follow the "Install" steps at the top.
+
+# Manually install Lazygit from https://github.com/jesseduffield/lazygit.
 ```
 
 ## Tar chezmoi config on a machine for export
