@@ -37,10 +37,19 @@
 	default = simple
 [diff]
 	algorithm = histogram
+{{ if lookPath "difft" -}}
+	# See https://difftastic.wilfred.me.uk/git.html
+	# This only works for `git diff`, for others `--ext-diff` needs to be specified
+	# e.g.
+	#   git show HEAD --ext-diff
+	# To use builtin diff, use `git diff --no-ext-diff`
+	external = difft
+{{ end -}}
 [pull]
 	rebase = true
 [fetch]
 	prune = true
+	fsckobjects = true
 [stash]
 	showPatch = true
 [filter "lfs"]
@@ -58,22 +67,10 @@
 [init]
 	defaultBranch = main
 
-[fetch]
-	fsckobjects = true
 [transfer]
 	fsckobjects = true
 [receive]
 	fsckObjects = true
-
-{{ if lookPath "difft" -}}
-[diff]
-	# See https://difftastic.wilfred.me.uk/git.html
-	# This only works for `git diff`, for others `--ext-diff` needs to be specified
-	# e.g.
-	#   git show HEAD --ext-diff
-	# To use builtin diff, use `git diff --no-ext-diff`
-	external = difft
-{{- end }}
 
 {{ if eq .chezmoi.osRelease.id "nixos" -}}
 [safe]
