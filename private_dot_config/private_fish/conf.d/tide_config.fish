@@ -9,15 +9,6 @@
 # https://fishshell.com/docs/current/cmds/set_color.html
 #
 
-# 16 colors
-set --local _prompt_colors_black     black
-set --local _prompt_colors_blue      blue
-set --local _prompt_colors_brblack   brblack
-set --local _prompt_colors_green     green
-set --local _prompt_colors_red       red
-set --local _prompt_colors_white     white
-set --local _prompt_colors_yellow    yellow
-
 # Full colors
 set --local _prompt_colors_black     '#303030'
 set --local _prompt_colors_blue      '#1581FF'
@@ -26,6 +17,15 @@ set --local _prompt_colors_green     '#6AB017'
 set --local _prompt_colors_red       '#E1321A'
 set --local _prompt_colors_white     '#F2F2F2'
 set --local _prompt_colors_yellow    '#FFC005'
+
+# 16 colors
+set --local _prompt_colors_black     black
+set --local _prompt_colors_blue      blue
+set --local _prompt_colors_brblack   brblack
+set --local _prompt_colors_green     green
+set --local _prompt_colors_red       red
+set --local _prompt_colors_white     white
+set --local _prompt_colors_yellow    yellow
 
 #
 # Custom segment items

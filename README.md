@@ -84,3 +84,8 @@ nix-shell -p typst typstyle
 typstyle -i cheatsheet.typ; typst compile cheatsheet.typ
 open cheatsheet.pdf
 ```
+
+## Color themes
+
+Fish shell [theme](private_dot_config/private_fish/conf.d/colors.fish) and [prompt](private_dot_config/private_fish/conf.d/tide_config.fish) are defined in terms of the standard shell 16 color palette.
+The color palette is defined in the terminal emulator config, currently [ddterm](dconf/dconf.ini).
