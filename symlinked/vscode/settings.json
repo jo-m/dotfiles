@@ -23,9 +23,6 @@
         "violet",
         "white"
     ],
-    "go.buildFlags": [
-        "-tags=moretests"
-    ],
     "workbench.editor.empty.hint": "hidden",
     "explorer.confirmDelete": false,
     "glsllint.glslangValidatorArgs": "-V",
@@ -78,7 +75,10 @@
         "testPackage": true,
         "generateTestForFile": true
     },
+    "go.buildTags": "moretests,online",
+    "go.testTags": "moretests,online",
     "go.lintFlags": [
+        "--build-tags=moretests,online",
         "-checks",
         "all,-ST1000"
     ],
