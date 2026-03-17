@@ -81,12 +81,13 @@ function _tide_item_git_custom
     set --global __fish_git_prompt_describe_style            branch
     set --global __fish_git_prompt_char_stateseparator       ''
 
+    # https://www.nerdfonts.com/cheat-sheet
     set --global __fish_git_prompt_char_cleanstate           '✔ '
-    set --global __fish_git_prompt_char_dirtystate           '±'   # Unicode PLUS-MINUS SIGN
+    set --global __fish_git_prompt_char_dirtystate           '🞷 '   # Unicode PLUS-MINUS SIGN
     set --global __fish_git_prompt_char_invalidstate         '✖ '
     set --global __fish_git_prompt_char_stagedstate          '● ' # Unicode BOLD SIX SPOKED ASTERISK
     set --global __fish_git_prompt_char_stashstate           ''
-    set --global __fish_git_prompt_char_untrackedfiles       '🞷 ' # Unicode BLACK CIRCLE
+    set --global __fish_git_prompt_char_untrackedfiles       '±'  # Unicode PLUS-MINUS SIGN
     set --global __fish_git_prompt_char_upstream_ahead       '↑ '
     set --global __fish_git_prompt_char_upstream_behind      '↓ '
     set --global __fish_git_prompt_char_upstream_diverged    '↓↑ '
@@ -95,7 +96,7 @@ function _tide_item_git_custom
     set --local _tide_item_git_custom_operation_sym          '⚒ ' # Unicode HAMMER AND PICK
     set --local _tide_item_git_custom_branch_sym             '' # Powerline BRANCH SYMBOL
     set --local _tide_item_git_custom_detached_sym           '➦' # Unicode HEAVY BLACK CURVED UPWARDS AND RIGHTWARDS ARROW
-    # set __fish_git_prompt_char_untrackedfiles '✸' # 🗙 ❋ ❇
+    # set __fish_git_prompt_char_untrackedfiles '✸' # 🗙 ❋ ❇ (printf "\uf0fe \uf067 ")
 
     set --local git_info (string replace "|" " $_tide_item_git_custom_operation_sym" (fish_git_prompt "%s"))
 
