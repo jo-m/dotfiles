@@ -121,6 +121,25 @@
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "rust-analyzer.check.command": "clippy",
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "workbench.preferredDarkColorTheme": "Visual Studio Dark"
+    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+    "workbench.colorCustomizations": {
+        "terminal.foreground": "#ffffff",
+        "terminal.background": "#000000",
+        "terminal.ansiBlack": "#303030",
+        "terminal.ansiRed": "#e1321a",
+        "terminal.ansiGreen": "#6ab017",
+        "terminal.ansiYellow": "#ffc005",
+        "terminal.ansiBlue": "#1581ff",
+        "terminal.ansiMagenta": "#d500bf",
+        "terminal.ansiCyan": "#2cb9f5",
+        "terminal.ansiWhite": "#f2f2f2",
+        "terminal.ansiBrightBlack": "#787878",
+        "terminal.ansiBrightRed": "#ff361e",
+        "terminal.ansiBrightGreen": "#7bc91f",
+        "terminal.ansiBrightYellow": "#ffd00a",
+        "terminal.ansiBrightBlue": "#6eaeff",
+        "terminal.ansiBrightMagenta": "#ff39e2",
+        "terminal.ansiBrightCyan": "#78cbff",
+        "terminal.ansiBrightWhite": "#ffffff"
+    }
 }
