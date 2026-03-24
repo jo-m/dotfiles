@@ -2,7 +2,24 @@
 
 background = 000000
 foreground = ffffff
-background-opacity = 0.78
+background-opacity = 0.80
+
+palette = 0=#303030
+palette = 1=#e1321a
+palette = 2=#6ab017
+palette = 3=#ffc005
+palette = 4=#1581ff
+palette = 5=#d500bf
+palette = 6=#2cb9f5
+palette = 7=#f2f2f2
+palette = 8=#787878
+palette = 9=#ff361e
+palette = 10=#7bc91f
+palette = 11=#ffd00a
+palette = 12=#6eaeff
+palette = 13=#ff39e2
+palette = 14=#78cbff
+palette = 15=#ffffff
 
 font-family = Iosevka
 font-size = 10

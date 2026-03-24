@@ -1,0 +1,34 @@
+# https://alacritty.org/config-alacritty.html
+
+[window]
+opacity = 0.80
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "Iosevka"
+
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[colors.normal]
+black   = "#303030"
+red     = "#e1321a"
+green   = "#6ab017"
+yellow  = "#ffc005"
+blue    = "#1581ff"
+magenta = "#d500bf"
+cyan    = "#2cb9f5"
+white   = "#f2f2f2"
+
+[colors.bright]
+black   = "#787878"
+red     = "#ff361e"
+green   = "#7bc91f"
+yellow  = "#ffd00a"
+blue    = "#6eaeff"
+magenta = "#ff39e2"
+cyan    = "#78cbff"
+white   = "#ffffff"
