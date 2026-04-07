@@ -12,6 +12,10 @@
 	co = checkout
 	nb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
 
+	fixup = commit --fixup
+	autosquash = rebase --autosquash
+	rb = rebase --interactive
+
 	c = commit --message              # commit with message
 	amend = commit --amend            # ammend your last commit
 	pushi = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
