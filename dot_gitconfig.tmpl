@@ -70,9 +70,11 @@
 	process = git-lfs filter-process
 [help]
 	autoCorrect = prompt
-# TODO: enable after git > 2.35 (Ubuntu 22 does not yet have it)
-#[merge]
-#	conflictstyle = zdiff3
+{{ if eq .chezmoi.osRelease.id "nixos" -}}
+# TODO: enable on Ubuntu as soon as it has git > 2.35 (Ubuntu 22.04 does not yet have it)
+[merge]
+	conflictstyle = zdiff3
+{{- end }}
 [rebase]
 	autosquash = true
 [init]
