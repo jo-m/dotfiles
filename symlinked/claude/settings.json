@@ -2,7 +2,6 @@
   "permissions": {
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": false,
     "gopls-lsp@claude-plugins-official": true,
@@ -10,24 +9,25 @@
     "frontend-design@claude-plugins-official": true,
     "chrome-devtools-mcp@claude-plugins-official": false
   },
-"sandbox": {
-    "__comment__": "https://news.ycombinator.com/item?id=47550688",
+  "sandbox": {
     "enabled": true,
     "filesystem": {
-      "allowRead": [
-        "."
-      ],
-      "denyRead": [
-        "~/"
-      ],
       "allowWrite": [
         "."
       ],
       "denyWrite": [
         "/"
+      ],
+      "denyRead": [
+        "~/"
+      ],
+      "allowRead": [
+        "."
       ]
-    }
+    },
+    "__comment__": "https://news.ycombinator.com/item?id=47550688"
   },
   "promptSuggestionEnabled": false,
-  "autoMemoryEnabled": false
+  "autoMemoryEnabled": false,
+  "model": "opus"
 }
