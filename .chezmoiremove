@@ -3,3 +3,4 @@ bin/dupescan.py
 bin/fsck-gc-all-gitrepos.sh
 bin/fsck-all-gitrepos.sh
 bin/colortest.sh
+.copilot/instructions/user.instructions.md
