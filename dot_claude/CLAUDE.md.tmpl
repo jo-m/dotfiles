@@ -1,1 +1,12 @@
-{{- if eq .chezmoi.osRelease.id "nixos" -}}You are on NixOS. Use nix-shell -p to temporarily load missing software.{{- end -}}
+## General
+{{- if eq .chezmoi.osRelease.id "nixos" -}}- You are on NixOS. Use nix-shell -p to temporarily load missing software.{{- end -}}
+- Read existing files before writing. DO NOT re-read unless changed.
+- Thorough in reasoning, concise in output.
+- Skip files over 100KB unless required.
+- NO sycophantic openers or closing fluff.
+- DO NOT guess APIs, versions, flags, commit SHAs, or package names. Verify by reading code or docs before asserting.
+- NEVER write code which prints or logs secret or sensitive information (passwords, keys, ...)
+- NEVER hardcode sensitive configuration (keys/passwords) into the code
+- MUST keep comments and docs up-to-date with code changes
+- NEVER use emoji, or unicode that emulates emoji in the source code (e.g. ✓, ✗). DO NOT use em dashes. The only exception is when writing features and tests requiring this, and testing the impact of multibyte characters.
+- MUST write tests for all new code
