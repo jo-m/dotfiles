@@ -88,3 +88,12 @@ mem()
 if command -v direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
+
+# --- START 7s-dotfiles snippet hook ---
+if [ -d "$HOME/.config/bash/bashrc.d" ]; then
+    for file in "$HOME/.config/bash/bashrc.d"/*.bash; do
+      [ -e "$file" ] || continue
+      source "$file"
+    done
+  fi
+# ---  END  7s-dotfiles snippet hook ---
