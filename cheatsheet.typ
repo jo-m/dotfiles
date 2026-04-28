@@ -122,21 +122,16 @@
 
   #shortcut_section("Tmux", (
     ("Prefix", "Ctrl + B"),
-    ("Toggle statusbar", "Prefix + S"),
     // ("Create Window", "Prefix + C"),
     ("Next Window", "Prefix + N"),
     ("Previous Window", "Prefix + P"),
-    // ("Find Window", "Prefix + F"),
-    // ("Name Window", "Prefix + ,"),
-    ("Kill Window", "Prefix + &"),
-    ("Swap Panes", "Prefix + O"),
-    ("Show Pane Numbers", "Prefix + Q"),
-    ("Kill Pane", "Prefix + X"),
+    ("Kill Window/Pane", "Prefix + &/X"),
+    ("Find Window", "Prefix + F"),
+    ("Breakout Pane", "Prefix + !"),
+    ("Window/Pane Menu", "Prefix + </>"),
     ("Create Window", "Fn + C"), // Keyboard custom.
     ("Zoom Window", "Fn + Z"), // Keyboard custom.
   ))
-
-
 
   #shortcut_section("Tmux Copy Mode", (
     ("Start Copy Mode", "Prefix + ["),
