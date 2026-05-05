@@ -31,13 +31,21 @@ def get_api_key():
     )
     
     stdout, stderr = process.communicate(input=input_data)
-    
+
     if process.returncode != 0:
-        return None
+        raise RuntimeError(
+            f"git-credential-keepassxc failed (exit {process.returncode}): "
+            f"{stderr.strip() or '<no stderr>'}"
+        )
 
     for line in stdout.splitlines():
         if line.startswith("password="):
             return line.replace("password=", "", 1)
+
+    raise RuntimeError(
+        "git-credential-keepassxc returned no password line for "
+        "https://api.anthropic.com (is the database unlocked and an entry configured?)"
+    )
 
 
 def count_tokens(api_key, message, model: AnthropicModel, system_prompt: str = "", ) -> int:
