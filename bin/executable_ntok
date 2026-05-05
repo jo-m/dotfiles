@@ -79,8 +79,8 @@ def main():
     )
     parser.add_argument(
         "file",
-        nargs="?",
-        help="Path to a file whose contents are passed as the message. "
+        nargs="*",
+        help="Paths to files whose concatenated contents are passed as the message. "
              "If omitted, reads from stdin.",
     )
     parser.add_argument(
@@ -92,9 +92,12 @@ def main():
     )
     args = parser.parse_args()
 
-    if args.file is not None:
-        with open(args.file, "r", encoding="utf-8") as f:
-            message = f.read()
+    if args.file:
+        parts = []
+        for path in args.file:
+            with open(path, "r", encoding="utf-8") as f:
+                parts.append(f.read())
+        message = "".join(parts)
     else:
         message = sys.stdin.read()
 
