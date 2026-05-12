@@ -25,6 +25,8 @@
 
 	glog = log --graph
 	slog = log --pretty=format:"%h - %an, %ar : %s"
+	# Log without bump commits
+	clog = log --invert-grep --grep="^Bump"
 
 	staged = diff --cached
 	dff = diff --ignore-space-at-eol --ignore-space-change --ignore-all-space
