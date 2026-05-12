@@ -37,6 +37,12 @@ function _tide_item_superuser
     end
 end
 
+function _tide_item_jai_mode
+    if test "$JAI_MODE" = strict
+        _tide_print_item   jai_mode         $tide_jai_mode_icon' '
+    end
+end
+
 function _tide_item_username
     _tide_print_item   username             "$USER"
 end
@@ -131,7 +137,7 @@ set --global tide_prompt_pad_items                      false
 set --global tide_prompt_transient_enabled              true
 
 # Left prompt
-set --global tide_left_prompt_items                     private_mode superuser jobs username hostname pwd git_custom direnv rustc go python
+set --global tide_left_prompt_items                     private_mode superuser jai_mode jobs username hostname pwd git_custom direnv rustc go python
 set --global tide_left_prompt_separator_same_color      '❯'
 set --global tide_left_prompt_separator_diff_color      '' #      
 set --global tide_left_prompt_prefix                    ''
@@ -159,6 +165,10 @@ set --global tide_superuser_icon            '⚡'
 set --global tide_jobs_bg_color             $_prompt_colors_black
 set --global tide_jobs_color                $_prompt_colors_yellow
 set --global tide_jobs_icon                 '⚙'
+
+set --global tide_jai_mode_bg_color         $_prompt_colors_black
+set --global tide_jai_mode_color            $_prompt_colors_yellow
+set --global tide_jai_mode_icon             '⛓️'
 
 #
 # Rest of left prompt

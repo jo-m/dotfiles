@@ -30,5 +30,6 @@
   },
   "promptSuggestionEnabled": false,
   "autoMemoryEnabled": false,
-  "theme": "dark-daltonized"
+  "theme": "dark-daltonized",
+  "skipDangerousModePermissionPrompt": true
 }
