@@ -1,0 +1,9 @@
+.headers on
+.mode box
+.nullvalue [NULL]
+.width auto
+
+-- 8MB
+PRAGMA cache_size = -8000;
+-- Ensure temporary tables and indices are stored in RAM instead of disk
+PRAGMA temp_store = MEMORY;
