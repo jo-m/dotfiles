@@ -1,0 +1,24 @@
+# -*- shell-script-mode -*-
+
+# You can use this file to define bash functions invocable from jai.
+#
+# To use the file, you will need the following in your .defaults file:
+#
+# command source "${JAI_SCRIPT:-/dev/null}"; "$0" "$@"
+
+# Prevent jailed processes from inheriting any file descriptors other than 0,1, and 2.
+scrub_fds() {
+  local p fd
+
+  for p in /proc/$$/fd/*; do
+    fd=${p##*/}
+
+    case $fd in
+      0|1|2|255) continue ;;
+      ''|*[!0-9]*) continue ;;
+    esac
+
+    eval "exec $fd<&- $fd>&-" 2>/dev/null || :
+  done
+}
+test -n "${JAI_KEEP_FDS+set}" || scrub_fds

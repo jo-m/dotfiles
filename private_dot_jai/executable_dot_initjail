@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# This is run when initializing any jail.
+
+# Out of paranoia, make sure this isn't run in your real home directory.
+if [[ $(readlink -f "$HOME") == $(readlink -f .) ]]; then
+    echo Do not run this in your real home directory>&2
+    exit 1
+fi
+
+# When creating strict/bare mode jails, copy .claude.json from outside.
+CLAUDE_JSON="$HOME/.claude.json"
+if [[ $JAI_MODE == strict || $JAI_MODE == bare ]] && [[ -f "$CLAUDE_JSON" ]]; then
+    cp "$CLAUDE_JSON" .
+fi
+
+# In any kind of new jail, copy github's public key to the new .ssh dir.
+# (Casual jails mask .ssh by default, so you need to create the directory regardless of mode.)
+mkdir --mode=0700 .ssh
+grep -E "^github.com " "$HOME/.ssh/known_hosts" >> .ssh/known_hosts || true
+grep -E "^gitlab.com " "$HOME/.ssh/known_hosts" >> .ssh/known_hosts || true
+grep -E "^codeberg.org " "$HOME/.ssh/known_hosts" >> .ssh/known_hosts || true

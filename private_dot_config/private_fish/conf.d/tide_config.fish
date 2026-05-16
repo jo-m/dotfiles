@@ -38,8 +38,15 @@ function _tide_item_superuser
 end
 
 function _tide_item_jai_mode
+    if not set -q JAI_MODE
+        return
+    end
+
     if test "$JAI_MODE" = strict
-        _tide_print_item   jai_mode         $tide_jai_mode_icon' '
+        _tide_print_item   jai_mode         $tide_jai_mode_strict_icon' '$JAI_JAIL
+    else
+        # casual or bare mode.
+        _tide_print_item   jai_mode         $tide_jai_mode_casual_icon' '$JAI_JAIL
     end
 end
 
@@ -165,10 +172,12 @@ set --global tide_superuser_icon            '⚡'
 set --global tide_jobs_bg_color             $_prompt_colors_black
 set --global tide_jobs_color                $_prompt_colors_yellow
 set --global tide_jobs_icon                 '⚙'
+set --global tide_jobs_number_threshold     2
 
-set --global tide_jai_mode_bg_color         $_prompt_colors_black
-set --global tide_jai_mode_color            $_prompt_colors_yellow
-set --global tide_jai_mode_icon             '⛓️'
+set --global tide_jai_mode_bg_color         $_prompt_colors_white
+set --global tide_jai_mode_color            $_prompt_colors_black
+set --global tide_jai_mode_strict_icon      '🔒'
+set --global tide_jai_mode_casual_icon      '🔓'
 
 #
 # Rest of left prompt
