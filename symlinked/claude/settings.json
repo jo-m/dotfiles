@@ -2,7 +2,6 @@
   "permissions": {
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
   "enabledPlugins": {
     "clangd-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -12,5 +11,28 @@
   },
   "promptSuggestionEnabled": false,
   "autoMemoryEnabled": false,
-  "theme": "auto"
+  "theme": "auto",
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "direnv export bash > \"$CLAUDE_ENV_FILE\""
+          }
+        ]
+      }
+    ],
+    "CwdChanged": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "direnv export bash > \"$CLAUDE_ENV_FILE\""
+          }
+        ]
+      }
+    ]
+  }
 }
