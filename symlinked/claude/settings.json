@@ -19,7 +19,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "direnv export bash > \"$CLAUDE_ENV_FILE\""
+            "command": "case \"$PWD\" in *\"/.claude/worktrees/\"*) [ -f .envrc ] && direnv allow . ;; esac; direnv export bash > \"$CLAUDE_ENV_FILE\""
           }
         ]
       }
@@ -29,7 +29,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "direnv export bash > \"$CLAUDE_ENV_FILE\""
+            "command": "case \"$PWD\" in *\"/.claude/worktrees/\"*) [ -f .envrc ] && direnv allow . ;; esac; direnv export bash > \"$CLAUDE_ENV_FILE\""
           }
         ]
       }
