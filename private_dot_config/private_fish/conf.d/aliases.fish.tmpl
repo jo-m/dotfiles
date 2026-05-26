@@ -85,7 +85,27 @@ alias ad "sudo apt update"
 alias adu "sudo apt update && sudo apt dist-upgrade"
 alias as "aptitude -F \"* %p -> %d \n(%v/%V)\" \
         --no-gui --disable-columns search" # search package
-{{- end -}}
+
+function apt-which -a binary_name -d "Show the apt package that provides a binary"
+    set -l binary_path (command which $binary_name 2>/dev/null)
+    if test $status -ne 0
+        echo "Binary '$binary_name' not found in PATH."
+        return 1
+    end
+
+    set -l dpkg_result (dpkg -S $binary_path 2>/dev/null)
+    if test $status -ne 0
+        echo "'$binary_path' is not owned by any package."
+        return 1
+    end
+
+    set -l package_name (string split -m1 ':' $dpkg_result)[1]
+    echo "$binary_name -> $binary_path -> $package_name"
+    apt show $package_name
+end
+complete -c apt-which -f -w which
+
+{{ end -}}
 
 alias lg "lazygit"
 
