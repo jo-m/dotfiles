@@ -141,5 +141,6 @@
         "terminal.ansiBrightMagenta": "#ff39e2",
         "terminal.ansiBrightCyan": "#78cbff",
         "terminal.ansiBrightWhite": "#ffffff"
-    }
+    },
+    "git.addAICoAuthor": "off"
 }
