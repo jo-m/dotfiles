@@ -1,0 +1,17 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Ensure ignore-scripts=true is set in .npmrc */ -}}
+{{- $content := .chezmoi.stdin -}}
+{{- if regexMatch "(?m)^ignore-scripts=true$" $content -}}
+{{-   $content -}}
+{{- else -}}
+{{-   if ne $content "" -}}
+{{-     $content -}}
+{{-     if not (hasSuffix "\n" $content) -}}
+{{-       "\n" -}}
+{{-     end -}}
+{{-     "\n" -}}
+{{-   end -}}
+{{-   "# Basic defense against NPM supply chain attacks.\n" -}}
+{{-   "ignore-scripts=true\n" -}}
+{{-   "min-release-age=3\n" -}}
+{{- end -}}

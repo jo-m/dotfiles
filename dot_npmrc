@@ -1,3 +1,0 @@
-# Basic defense against NPM supply chain attacks.
-ignore-scripts=true
-min-release-age=3
