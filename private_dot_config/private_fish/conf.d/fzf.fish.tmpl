@@ -94,7 +94,7 @@ function fcleanb -d "fzf git select branches to delete where the upstream has di
     end
 end
 
-function fco -d "fzf git checkout a branch"
+function _fco_expand -d "fzf-pick a branch and expand to 'git checkout <branch>'"
     set -l selected (
         begin
             git for-each-ref --sort=-committerdate --format='%(committerdate:iso-strict) %(refname:lstrip=2)' --count=15 refs/heads/
@@ -102,15 +102,18 @@ function fco -d "fzf git checkout a branch"
         end | grep -v HEAD | sort --unique --key=2 | sort --reverse --key=1 | awk '{print $2}' | $_FZF_BINARY
     )
 
-    [ -n "$selected" ]; and git checkout "$selected"
+    [ -n "$selected" ]; and echo "git checkout $selected"
 end
 
+abbr --add fco --position command --function _fco_expand
+
 function fhelp -d "Show available fzf wrapper commands"
-    set -l fzf_functions z fcd fc fode venv fssh fco fcleanb fdelb
+    set -l fzf_functions z fcd fc fode venv fssh fcleanb fdelb
     for func in $fzf_functions
         set -l desc (functions --details --verbose $func | tail -n +5)
         printf "% 10s -- %s\n" "$func" "$desc"
     end
+    printf "% 10s -- %s\n" fco "fzf-pick a branch, expand to 'git checkout <branch>'"
     printf "% 10s -- %s\n" "Ctrl+T" "Insert file name"
     printf "% 10s -- %s\n" "Ctrl+R" "Search history"
     printf "% 10s -- %s\n" "Alt+C" "cd"
