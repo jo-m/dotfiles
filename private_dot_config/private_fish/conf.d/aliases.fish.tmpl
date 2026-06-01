@@ -113,3 +113,38 @@ alias calc "numbat"
 
 # Claude yolo mode in strict jail.
 abbr -a yoloclaude jai --conf default claude --dangerously-skip-permissions
+
+# Convert files to JPEG
+function jpegize --description 'Convert PNG files to JPEG using ImageMagick'
+    # Check if any arguments were provided
+    if test (count $argv) -eq 0
+        echo "Error: No files specified."
+        echo "Usage: jpegize file1.png [file2.png ...]"
+        return 1
+    end
+
+    # Loop through all provided arguments
+    for file in $argv
+        # Verify the file exists and is a regular file
+        if not test -f "$file"
+            echo "Warning: '$file' not found, skipping."
+            continue
+        end
+
+        # Extract the base name without the extension
+        set -l basename (string replace -r '\.[^.]+$' '' $file)
+
+        # Define the output filename
+        set -l output "$basename.jpg"
+
+        echo "Converting $file -> $output..."
+
+        # Run the ImageMagick convert command
+        # Note: If using ImageMagick v7+, 'magick' is preferred over 'convert'
+        if command -v magick > /dev/null
+            magick "$file" "$output"
+        else
+            convert "$file" "$output"
+        end
+    end
+end
