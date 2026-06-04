@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# https://github.com/Frederick888/git-credential-keepassxc/blob/master/src/utils/socket.rs
+uid="$(id -u)"
+KEEPASSXC_BROWSER_SOCKET_PATH="/run/user/$uid/app/org.keepassxc.KeePassXC/org.keepassxc.KeePassXC.BrowserServer"
+export KEEPASSXC_BROWSER_SOCKET_PATH
+
+ANTHROPIC_BASE_URL="https://api.deepseek.com/anthropic"
+
+ANTHROPIC_AUTH_TOKEN="$(echo "url=$ANTHROPIC_BASE_URL" \
+| git-credential-keepassxc --config ~/.config/git-credential-keepassxc get \
+| sed -n 's/^password=//p')"
+
+export ANTHROPIC_BASE_URL
+export ANTHROPIC_AUTH_TOKEN
+export ANTHROPIC_MODEL=deepseek-v4-pro
+export ANTHROPIC_SUBAGENT_MODEL=deepseek-v4-flash
+export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+
+jai --conf default claude --dangerously-skip-permissions
