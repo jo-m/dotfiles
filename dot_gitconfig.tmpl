@@ -18,6 +18,7 @@
 
 	c = commit --message              # commit with message
 	amend = commit --amend            # ammend your last commit
+	empty = commit --allow-empty -m empty
 	pushi = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
 
 	stash-all = stash save --include-untracked
