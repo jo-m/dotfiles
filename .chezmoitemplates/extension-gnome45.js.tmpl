@@ -107,25 +107,40 @@ export default class GnomeMagicWindowExtension extends Extension {
 
   get_windows() {
     return global.get_window_actors()
-           .map(w => ({id: w.toString(),
-                       ref: w,
-                       title: w.get_meta_window().get_wm_class()}))
-           .filter(w => w.title && !w.title.includes('Gnome-shell'));
+           .map(w => {
+             const meta = w.get_meta_window();
+             return {
+               id: w.toString(),
+               ref: w,
+               title: meta.get_wm_class(),
+               instance: meta.get_wm_class_instance(),
+             };
+           })
+           .filter(w => (w.title || w.instance) &&
+                        !(w.title || '').includes('Gnome-shell'));
   }
 
   get_active_window() {
-    return this.get_windows().slice(-1)[0];
+    const focus = global.display.get_focus_window();
+    if (!focus)
+      return null;
+    return this.get_windows()
+               .filter(w => w.ref.get_meta_window() === focus)[0];
   }
 
   find_magic_window(title) {
+    const t = title.toLowerCase();
     return this.get_windows()
-           .filter(w => w.title.toLowerCase().includes(title.toLowerCase()))[0];
+           .filter(w => {
+             const wTitle = (w.title || '').toLowerCase();
+             const wInstance = (w.instance || '').toLowerCase();
+             return wTitle.includes(t) || t.includes(wTitle) ||
+                    wInstance.includes(t) || t.includes(wInstance);
+           })[0];
   }
 
   magic_key_pressed(title, command) {
     // For debugging:
-    // Util.spawn(['/bin/bash', '-c', `echo '${this.debug()}' > /tmp/test`]);
-    // throw new Error(this.debug());
     // log(this.debug());  // visible in journalctl -f
 
     const current = this.get_active_window();
