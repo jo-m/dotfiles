@@ -16,9 +16,9 @@ abbr --add py 'python3'
 abbr -a exe chmod +x
 
 # tmux: attach, 256 colors, fix unicode
-alias tmx 'TERM=screen-256color-bce tmux -2u new-session -A -s main'
+alias tmx 'tmux -2u new-session -A -s main'
 # open new session with same windows, e.g. for log view
-alias tmx2 'TERM=screen-256color-bce tmux -2u new-session -t "main"'
+alias tmx2 'tmux -2u new-session -t "main"'
 
 function md -d "Create a directory and cd into it"
     command mkdir -p $argv
