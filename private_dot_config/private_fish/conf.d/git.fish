@@ -6,7 +6,7 @@ function git --description 'Git wrapper to fallback from main to master (support
         set -l branch $argv[2]
 
         # Intercept if command is 'checkout' or 'co' AND the target is 'main'
-        if contains $sub_cmd checkout co; and test "$branch" = "main"
+        if contains -- $sub_cmd checkout co; and test "$branch" = "main"
             # Check if 'main' exists locally or on a remote
             if not command git rev-parse --verify main >/dev/null 2>&1
                 echo (set_color yellow)"⚠️  'main' not found, falling back to 'master'..."(set_color normal)
