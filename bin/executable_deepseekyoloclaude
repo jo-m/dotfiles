@@ -13,8 +13,8 @@ ANTHROPIC_AUTH_TOKEN="$(echo "url=$ANTHROPIC_BASE_URL" \
 
 export ANTHROPIC_BASE_URL
 export ANTHROPIC_AUTH_TOKEN
-export ANTHROPIC_MODEL=deepseek-v4-pro
-export ANTHROPIC_SUBAGENT_MODEL=deepseek-v4-flash
+export ANTHROPIC_MODEL=deepseek-flash
+export ANTHROPIC_SUBAGENT_MODEL=deepseek-flash
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 
 jai --conf default claude --dangerously-skip-permissions
