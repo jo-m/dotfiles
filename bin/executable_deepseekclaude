@@ -22,4 +22,4 @@ export CLAUDE_CODE_EFFORT_LEVEL=max
 export CLAUDE_CODE_AUTO_COMPACT_WINDOW=786432
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 
-exec jai --conf default claude --dangerously-skip-permissions
+exec claude
