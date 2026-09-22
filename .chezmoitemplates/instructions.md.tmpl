@@ -1,8 +1,7 @@
 ## General
 {{ if eq .chezmoi.osRelease.id "nixos" -}}- You are on NixOS. Use nix-shell -p to temporarily load missing software.{{ end }}
-- MUST keep comments and docs up-to-date with code changes
 - NEVER use emoji, or unicode that emulates emoji in the source code (e.g. ✓, ✗). DO NOT use em dashes. The only exception is when writing features and tests requiring this, and testing the impact of multibyte characters.
-- MUST write tests for all new code, where it makes sense.
+- MUST write tests for all new code, BUT only where it makes sense. E.g. no tests for trivialities, boilerplate, template rendering, etc.
 - MUST keep functions focused on a single responsibility
 - MUST include docstrings for all public functions, classes, and methods
   - MUST document function parameters, return values, and exceptions raised
