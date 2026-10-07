@@ -148,3 +148,6 @@ function jpegize --description 'Convert PNG files to JPEG using ImageMagick'
         end
     end
 end
+
+# Launch VSCod{e,ium} with temporary user data dir and all extensions disabled.
+alias priv-code='code --disable-extensions --user-data-dir (mktemp -d)'
