@@ -11,6 +11,11 @@ ANTHROPIC_AUTH_TOKEN="$(echo "url=$ANTHROPIC_BASE_URL" \
 | git-credential-keepassxc --config ~/.config/git-credential-keepassxc get \
 | sed -n 's/^password=//p')"
 
+if [[ -z "$ANTHROPIC_AUTH_TOKEN" ]]; then
+    echo "error: ANTHROPIC_AUTH_TOKEN is empty" >&2
+    exit 1
+fi
+
 export ANTHROPIC_BASE_URL
 export ANTHROPIC_AUTH_TOKEN
 export ANTHROPIC_MODEL=deepseek-flash
